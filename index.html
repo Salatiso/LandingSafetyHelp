@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafetyHelp - Coming Soon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        header {
+            text-align: center;
+            padding: 10px;
+        }
+        .logo {
+            font-size: 2em;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .tagline {
+            font-size: 1em;
+            color: #28a745;
+        }
+        .countdown {
+            font-size: 1.2em;
+            color: #dc3545;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        main {
+            width: 90%;
+            max-width: 900px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .carousel {
+            margin: 10px 0;
+        }
+        .service {
+            text-align: center;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin: 5px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .service:hover {
+            transform: scale(1.05);
+        }
+        .service i {
+            font-size: 2em;
+            color: #007bff;
+            margin-bottom: 5px;
+        }
+        .service h2 {
+            font-size: 1.2em;
+            margin: 5px 0;
+        }
+        .service p {
+            font-size: 0.9em;
+            margin: 0;
+        }
+        .quiz {
+            text-align: center;
+            margin: 10px 0;
+        }
+        #start-quiz {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #start-quiz:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9em;
+        }
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 500px;
+            position: relative;
+            animation: fadeIn 0.3s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">SafetyHelp</div>
+        <div class="tagline">Making OHS compliance accessible to all</div>
+        <div class="countdown" id="countdown"></div>
+    </header>
+    <main>
+        <section class="carousel">
+            <div class="service" onclick="openModal('compliance')">
+                <i class="fas fa-shield-alt"></i>
+                <h2>Compliance Management</h2>
+                <p>Simplify OHS compliance</p>
+            </div>
+            <div class="service" onclick="openModal('risk')">
+                <i class="fas fa-chart-line"></i>
+                <h2>Risk Assessment</h2>
+                <p>Spot & fix risks fast</p>
+            </div>
+            <div class="service" onclick="openModal('training')">
+                <i class="fas fa-graduation-cap"></i>
+                <h2>Training Modules</h2>
+                <p>Upskill your team</p>
+            </div>
+            <div class="service" onclick="openModal('incident')">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h2>Incident Reporting</h2>
+                <p>Track & improve safety</p>
+            </div>
+            <div class="service" onclick="openModal('consulting')">
+                <i class="fas fa-user-tie"></i>
+                <h2>Consulting</h2>
+                <p>Expert OHS guidance</p>
+            </div>
+        </section>
+        <section class="quiz">
+            <button id="start-quiz">Test Your OHS Compliance</button>
+        </section>
+    </main>
+    <footer>
+        <p>Got questions or ideas? Want to collaborate or join our database?</p>
+        <p>Reach out: <a href="mailto:salatiso@salatiso.com">salatiso@salatiso.com</a></p>
+        <p>Salatiso Mdeni, Founder</p>
+    </footer>
+
+    <div id="service-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('service-modal')">&times;</span>
+            <div id="service-modal-body"></div>
+        </div>
+    </div>
+    <div id="quiz-modal" class="modal">
+        <div class="modal-content" id="quiz-content">
+            <span class="close" onclick="closeModal('quiz-modal')">&times;</span>
+            <h2>OHS Compliance Quiz</h2>
+            <div id="quiz-body"></div>
+            <button id="next-question" style="margin-top: 10px; background-color: #28a745; color: #fff; padding: 8px 16px; border: none; border-radius: 5px; cursor: pointer;">Next</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        // Countdown Timer
+        const launchDate = new Date("June 1, 2025 00:00:00").getTime();
+        const countdown = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s to launch!`;
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.getElementById("countdown").innerHTML = "We’re live!";
+            }
+        }, 1000);
+
+        // Carousel
+        $('.carousel').slick({
+            dots: true,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            responsive: [{ breakpoint: 768, settings: { slidesToShow: 1 } }]
+        });
+
+        // Modal Functions
+        function openModal(type) {
+            if (type === 'compliance') {
+                document.getElementById('service-modal-body').innerHTML = '<h2>Compliance Management</h2><p>Stay on top of OHS rules with tools that make audits and policies a breeze.</p>';
+                document.getElementById('service-modal').style.display = 'flex';
+            } else if (type === 'risk') {
+                document.getElementById('service-modal-body').innerHTML = '<h2>Risk Assessment</h2><p>Pinpoint hazards and fix them with our easy-to-use software.</p>';
+                document.getElementById('service-modal').style.display = 'flex';
+            } else if (type === 'training') {
+                document.getElementById('service-modal-body').innerHTML = '<h2>Training Modules</h2><p>Boost your team’s safety know-how with practical, engaging courses.</p>';
+                document.getElementById('service-modal').style.display = 'flex';
+            } else if (type === 'incident') {
+                document.getElementById('service-modal-body').innerHTML = '<h2>Incident Reporting</h2><p>Log incidents and spot trends to keep your workplace safer.</p>';
+                document.getElementById('service-modal').style.display = 'flex';
+            } else if (type === 'consulting') {
+                document.getElementById('service-modal-body').innerHTML = '<h2>Consulting</h2><p>Tap into expert advice to level up your OHS game plan.</p>';
+                document.getElementById('service-modal').style.display = 'flex';
+            }
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Quiz Logic
+        const quizQuestions = [
+            {
+                question: "What’s your role?",
+                options: ["Trainee", "OHS Professional", "Company Owner/Executive/Manager", "OHS Service Provider"],
+                type: "role"
+            },
+            {
+                question: "What’s your industry?",
+                options: ["General Administration", "Construction", "Manufacturing", "Other"],
+                type: "industry"
+            },
+            { question: "Do you have a health and safety policy?", options: ["Yes", "No"] },
+            { question: "Have legal roles/duties been communicated and allocated?", options: ["Yes", "No"] },
+            { question: "Are you registered with COID or equivalent?", options: ["Yes", "No"] },
+            { question: "Do you have a risk assessment?", options: ["Yes", "No"] },
+            { question: "Are mandatory contractor agreements in place?", options: ["Yes", "No"] },
+            { question: "Is safety training provided to staff?", options: ["Yes", "No"] },
+            { question: "Do you track workplace incidents?", options: ["Yes", "No"] },
+            { question: "Are regular safety audits conducted?", options: ["Yes", "No"] }
+        ];
+        let currentQuestion = 0;
+        let score = 0;
+
+        document.getElementById('start-quiz').addEventListener('click', () => {
+            document.getElementById('quiz-modal').style.display = 'flex';
+            showQuestion();
+        });
+
+        function showQuestion() {
+            const quizBody = document.getElementById('quiz-body');
+            const question = quizQuestions[currentQuestion];
+            let html = `<p>${question.question}</p>`;
+            question.options.forEach(option => {
+                html += `<label><input type="radio" name="answer" value="${option}"> ${option}</label><br>`;
+            });
+            quizBody.innerHTML = html;
+        }
+
+        document.getElementById('next-question').addEventListener('click', () => {
+            const selected = document.querySelector('input[name="answer"]:checked');
+            if (!selected) return;
+            if (currentQuestion > 1 && selected.value === "Yes") score++;
+            currentQuestion++;
+            if (currentQuestion < quizQuestions.length) {
+                showQuestion();
+            } else {
+                const result = score >= 6 ? "Great job! You’re on track with OHS compliance." : "Looks like there’s room to grow—SafetyHelp can assist!";
+                document.getElementById('quiz-content').innerHTML = `<h2>Your Result</h2><p>${result}</p><p>Score: ${score}/8</p>`;
+            }
+        });
+    </script>
+</body>
+</html>
