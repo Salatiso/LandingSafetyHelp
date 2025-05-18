@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SafetyHelp - Building a Safer Tomorrow, Together</title>
+    <title>SafetyHelp - Unveiling the Future of OHS</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         html, body {
             height: 100vh;
             overflow: hidden;
             margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: #f3f4f6; /* Fallback background */
-            color: #1f2937;
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* Dark background base */
+            color: #e5e7eb; /* Light text */
         }
         body {
             display: flex;
             flex-direction: column;
             position: relative;
         }
-        #bg-video-v3 {
+        #bg-video-v2 {
             position: fixed;
             top: 50%;
             left: 50%;
@@ -32,252 +32,278 @@
             z-index: -100;
             transform: translateX(-50%) translateY(-50%);
             background-size: cover;
-            filter: brightness(0.8) contrast(1.05); /* Slightly brighter for light theme */
+            filter: brightness(0.5) contrast(1.1); /* Adjusted for dark theme */
         }
 
-        .header-v3 {
-            padding: 15px 10px;
+        .header-v2 {
+            padding: 15px 10px; /* Compacted */
             text-align: center;
             position: relative;
             z-index: 10;
-            background: linear-gradient(to right, rgba(52, 211, 153, 0.85), rgba(34, 211, 238, 0.85)); /* Semi-transparent gradient */
-            color: white;
+            background-color: rgba(17, 24, 39, 0.8); /* Semi-transparent dark */
             flex-shrink: 0;
         }
-        .header-v3 .logo-icon-v3 {
-            font-size: 2.8rem; /* Prominent icon */
-            margin-bottom: 5px;
+        .header-v2 .logo-icon {
+             font-size: 2.5rem; /* Adjusted */
+             color: #0ea5e9; /* Sky blue */
+             margin-bottom: 5px;
         }
-        .header-v3 h1 {
-            font-size: 1.7rem; /* Compacted */
-            font-weight: 700;
-            margin-bottom: 3px;
+        .header-v2 h1 {
+            font-size: 1.8rem; /* Adjusted */
+            font-weight: 800;
+            color: #fff;
         }
-        .header-v3 p.subtitle-v3 {
-            font-size: 0.9rem; /* Compacted */
-            max-width: 600px;
-            margin: 0 auto 8px auto; /* Reduced bottom margin */
+        .header-v2 .animated-text span {
+            display: inline-block;
+            opacity: 0;
+            animation: fadeInLetter 0.4s forwards;
         }
+        @keyframes fadeInLetter { to { opacity: 1; } }
 
-        .countdown-container-v3 {
-            display: flex;
-            justify-content: center;
-            gap: 8px; /* Compact gap */
-        }
-        .countdown-tile-v3 {
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(3px);
-            border-radius: 0.5rem; /* Smaller radius */
-            padding: 6px 10px; /* Compact padding */
-            min-width: 55px; /* Ensure tiles have some width */
-        }
-        .countdown-tile-v3 .number-v3 {
-            font-size: 1.6rem; /* Compacted number */
-            font-weight: 700;
-        }
-        .countdown-tile-v3 .label-v3 {
-            font-size: 0.6rem; /* Compacted label */
-            text-transform: uppercase;
-        }
-
-        .main-content-v3 {
+        .main-content-v2 {
             flex-grow: 1;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            justify-content: center; /* Center the main content block */
             align-items: center;
-            padding: 15px;
-            overflow: hidden;
+            padding: 10px; /* Reduced padding */
+            overflow: hidden; /* Prevent internal scroll of main */
             position: relative;
             z-index: 10;
         }
-        .interactive-grid-v3 {
+        .content-grid-v2 {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2x2 grid */
-            gap: 15px;
+            grid-template-columns: repeat(2, 1fr); /* 2x2 grid for sections */
+            grid-template-rows: auto auto;
+            gap: 15px; /* Space between grid items */
             width: 100%;
-            max-width: 700px; /* Max width for the grid */
-            max-height: calc(100vh - 200px); /* Approximate available height */
+            max-width: 900px; /* Max width for the grid */
+            max-height: calc(100vh - 220px); /* Approx height available */
         }
-        .grid-card-v3 {
-            background-color: rgba(255, 255, 255, 0.95);
+        .grid-item-v2 {
+            background-color: rgba(31, 41, 55, 0.85); /* Darker semi-transparent cards */
             padding: 15px; /* Compact padding */
             border-radius: 0.75rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            cursor: pointer;
+            text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #e5e7eb;
         }
-        .grid-card-v3:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        .grid-item-v2:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(14, 165, 233, 0.2); /* Sky blue glow */
         }
-        .card-icon-v3 {
-            font-size: 2.2rem; /* Adjusted icon size */
+        .grid-item-v2 .item-icon {
+            font-size: 2rem; /* Adjusted icon size */
+            color: #0ea5e9; /* Sky blue */
             margin-bottom: 8px;
         }
-        .grid-card-v3 h3 {
+        .grid-item-v2 h3 {
             font-size: 1.1rem; /* Adjusted title size */
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 5px;
+            color: #e5e7eb;
         }
-        .grid-card-v3 p {
+        .grid-item-v2 p, .grid-item-v2 button, .grid-item-v2 .book-title-compact {
             font-size: 0.8rem; /* Adjusted text size */
-            color: #4b5563; /* Slightly darker gray for better contrast on white */
+            color: #9ca3af; /* Lighter gray for descriptions */
         }
-        .icon-why { color: #34d399; } /* Emerald */
-        .icon-books { color: #0ea5e9; } /* Sky */
-        .icon-resources { color: #f59e0b; } /* Amber */
-        .icon-launch { color: #ef4444; } /* Red */
+        .grid-item-v2 button {
+            margin-top: auto; /* Push button to bottom if space allows */
+            padding: 6px 12px;
+            background-color: #0ea5e9;
+            color: white;
+            border-radius: 0.375rem;
+            transition: background-color 0.2s ease;
+        }
+        .grid-item-v2 button:hover {
+            background-color: #0284c7;
+        }
+        .book-cover-compact-v2 {
+            width: 60px; /* Small book cover */
+            height: 90px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 5px;
+            cursor: pointer;
+        }
+        .books-container-v2 {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
 
-        .footer-v3 {
-            padding: 10px;
+
+        .countdown-container-v2 {
+            display: flex;
+            justify-content: center;
+            gap: 10px; /* Smaller gap */
+            margin-top: 10px; /* Space from headline */
+            margin-bottom: 15px; /* Space before content grid */
+        }
+        .countdown-item-v2 {
+            background-color: rgba(14, 165, 233, 0.2); /* Sky blue tint */
+            padding: 8px 12px; /* Compact padding */
+            border-radius: 0.375rem;
             text-align: center;
-            background-color: rgba(55, 65, 81, 0.9); /* Semi-transparent Cool Gray */
-            color: #d1d5db; /* Lighter gray for footer text */
-            font-size: 0.75rem;
+        }
+        .countdown-item-v2 span {
+            font-size: 1.5rem; /* Adjusted number size */
+            font-weight: 700;
+            line-height: 1;
+            color: #e5e7eb;
+        }
+        .countdown-item-v2 p {
+            font-size: 0.65rem; /* Adjusted label size */
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #9ca3af;
+        }
+
+        .footer-v2 {
+            padding: 10px; /* Compacted */
+            text-align: center;
+            background-color: rgba(17, 24, 39, 0.9); /* Darker semi-transparent */
+            color: #9ca3af; /* Lighter gray */
+            font-size: 0.75rem; /* Adjusted */
             flex-shrink: 0;
             position: relative;
             z-index: 10;
         }
-        .footer-v3 a { color: #60a5fa; } /* Lighter blue for links */
+        .footer-v2 a { color: #0ea5e9; }
 
-        /* Modal Styles V3 */
-        .modal-v3 { display: none; position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); justify-content: center; align-items: center; padding: 15px; box-sizing: border-box;}
-        .modal-content-v3 { background-color: #ffffff; color: #1f2937; padding: 20px; border-radius: 0.75rem; width: 90%; max-width: 650px; max-height: 85vh; position: relative; animation: fadeInModalV3 0.3s ease-out; box-shadow: 0 10px 25px rgba(0,0,0,0.2); display: flex; flex-direction: column; }
-        .modal-header-v3 { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e5e7eb; padding-bottom: 10px; margin-bottom: 15px; }
-        .modal-header-v3 h2 { margin: 0; font-size: 1.5em; font-weight:600; } /* Main title color from body */
-        .modal-body-v3 { overflow-y: auto; flex-grow: 1; line-height: 1.65; font-size: 0.95em; }
-        .modal-footer-v3 { padding-top: 15px; margin-top: 15px; border-top: 1px solid #e5e7eb; text-align: right; }
-        .modal-footer-v3 button, .modal-footer-v3 a { padding: 8px 18px; border-radius: 0.375rem; cursor: pointer; border: none; font-size: 0.9em; font-weight: 500; }
-        .btn-close-modal-v3 { background-color: #6b7280; color: white; } .btn-close-modal-v3:hover{ background-color: #4b5563;}
-        .btn-action-modal-v3 { background-color: #10b981; color: white; } .btn-action-modal-v3:hover{ background-color: #059669;}
-        .close-icon-modal-v3 { font-size: 1.6em; cursor: pointer; color: #6b7280; } .close-icon-modal-v3:hover{color: #374151;}
-        @keyframes fadeInModalV3 { from { opacity: 0; transform: translateY(15px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
-        
-        /* Specific Modal Content Styling V3 */
-        .benefit-item-v3 { margin-bottom: 15px; padding-left: 25px; position:relative; }
-        .benefit-item-v3 i { position:absolute; left:0; top:5px; color: #10b981; }
-        .benefit-item-v3 h4 { font-size: 1.1em; font-weight: 600; margin-bottom: 3px; }
-        .benefit-item-v3 p { font-size: 0.9em; color: #4b5563; }
+        /* Modal Styles */
+        .modal-v2 { display: none; position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); justify-content: center; align-items: center; padding: 15px; box-sizing: border-box;}
+        .modal-content-v2 { background-color: #1f2937; color: #e5e7eb; padding: 20px; border-radius: 0.75rem; width: 90%; max-width: 600px; max-height: 85vh; position: relative; animation: fadeInModalV2 0.3s ease-out; box-shadow: 0 10px 25px rgba(0,0,0,0.5); display: flex; flex-direction: column; }
+        .modal-header-v2 { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #374151; padding-bottom: 10px; margin-bottom: 15px; }
+        .modal-header-v2 h2 { margin: 0; font-size: 1.4em; color: #0ea5e9; }
+        .modal-body-v2 { overflow-y: auto; flex-grow: 1; line-height: 1.6; font-size: 0.9em; }
+        .modal-footer-v2 { padding-top: 15px; margin-top: 15px; border-top: 1px solid #374151; text-align: right; }
+        .modal-footer-v2 button, .modal-footer-v2 a { padding: 8px 15px; border-radius: 0.375rem; cursor: pointer; border: none; font-size: 0.9em; }
+        .btn-close-v2 { background-color: #4b5563; color: white; } .btn-close-v2:hover{ background-color: #374151;}
+        .btn-primary-modal-v2 { background-color: #0ea5e9; color: white; } .btn-primary-modal-v2:hover{ background-color: #0284c7;}
+        .close-icon-v2 { font-size: 1.5em; cursor: pointer; color: #9ca3af; } .close-icon-v2:hover{color: #e5e7eb;}
+        @keyframes fadeInModalV2 { from { opacity: 0; transform: translateY(-20px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
 
-        .book-modal-cover-v3 { max-width: 130px; float: left; margin-right: 18px; margin-bottom: 10px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);}
-        .book-modal-authors-v3 { font-size: 0.9em; color: #4b5563; font-style: italic; margin-bottom: 12px; clear:both; }
-        .summary-pagination-v3 { display: flex; justify-content: space-between; align-items: center; margin-top: 18px; }
-        .summary-pagination-v3 button { background-color: #22d3ee; color: white; padding: 7px 12px; font-size: 0.85em;}
-        .summary-pagination-v3 button:disabled { background-color: #9ca3af; cursor: not-allowed; }
-        .summary-pagination-v3 .page-info-v3 { font-size: 0.9em; color: #4b5563; }
+        /* Book Modal Specifics for V2 */
+        .book-modal-cover-v2 { max-width: 120px; float: left; margin-right: 15px; margin-bottom: 10px; border-radius: 6px; }
+        .book-modal-authors-v2 { font-size: 0.85em; color: #9ca3af; font-style: italic; margin-bottom: 10px; clear:both; }
+        .summary-pagination-v2 { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; }
+        .summary-pagination-v2 button { background-color: #0ea5e9; color: white; padding: 7px 10px; font-size: 0.8em;}
+        .summary-pagination-v2 button:disabled { background-color: #4b5563; cursor: not-allowed; }
+        .summary-pagination-v2 .page-info-v2 { font-size: 0.85em; color: #9ca3af; }
 
-        .resource-category-v3 h4 { font-size: 1.15em; color: #10b981; margin-bottom: 8px; border-bottom: 1px solid #d1d5db; padding-bottom: 6px; }
-        .resource-list-v3 li a { font-size: 0.95em; color: #2563eb; display: flex; align-items: center; padding: 6px 0; }
-        .resource-list-v3 li a:hover { color: #1d4ed8; text-decoration: underline; }
-        .resource-list-v3 li a i { margin-right: 10px; color: #6b7280; }
-
+        /* Resources Modal Specifics for V2 */
+        .resource-category-v2 h4 { font-size: 1.1em; color: #0ea5e9; margin-bottom: 8px; border-bottom: 1px solid #374151; padding-bottom: 5px; }
+        .resource-list-v2 li a { font-size: 0.9em; color: #9ca3af; display: flex; align-items: center; padding: 5px 0; }
+        .resource-list-v2 li a:hover { color: #0ea5e9; }
+        .resource-list-v2 li a i { margin-right: 8px; color: #6b7280; }
     </style>
 </head>
 <body>
-    <video autoplay muted loop id="bg-video-v3">
+    <video autoplay muted loop id="bg-video-v2">
         <source src="./assets/videos/background.mp4" type="video/mp4">
         Your browser does not support HTML5 video.
     </video>
 
-    <header class="header-v3">
-        <div class="logo-icon-v3"><i class="fas fa-shield-alt"></i></div>
-        <h1>Building a Safer Tomorrow, Together!</h1>
-        <p class="subtitle-v3">SafetyHelp is launching soon to empower South African workplaces and communities.</p>
-        <div class="countdown-container-v3" id="countdownV3">
-            </div>
+    <header class="header-v2">
+        <div class="logo-icon"><i class="fas fa-hard-hat"></i></div>
+        <h1 class="animated-text" id="animatedHeadlineV2">SafetyHelp is Coming!</h1>
     </header>
 
-    <main class="main-content-v3">
-        <div class="interactive-grid-v3">
-            <div class="grid-card-v3" onclick="openWhyModalV3()">
-                <i class="fas fa-lightbulb card-icon-v3 icon-why"></i>
-                <h3>Why SafetyHelp?</h3>
-                <p>Discover our mission for safer environments.</p>
+    <div class="countdown-container-v2" id="countdownV2">
+        </div>
+
+    <main class="main-content-v2">
+        <div class="content-grid-v2">
+            <div class="grid-item-v2" onclick="openFeatureModalV2()">
+                <div class="item-icon"><i class="fas fa-cogs"></i></div>
+                <h3>Our Innovations</h3>
+                <p>Discover AI-powered compliance, interactive training, and more.</p>
+                <button>Learn More</button>
             </div>
-            <div class="grid-card-v3" onclick="openBooksInfoModalV3()">
-                <i class="fas fa-book-reader card-icon-v3 icon-books"></i>
-                <h3>Inspired by Books</h3>
-                <p>Learn about the "Safety First" series.</p>
+
+            <div class="grid-item-v2">
+                <div class="item-icon"><i class="fas fa-book-reader"></i></div>
+                <h3>Inspired by Expertise</h3>
+                <div class="books-container-v2">
+                    <div class="text-center" onclick="openBookModalV2('book-career-v2')">
+                        <img src="./assets/photos/SF_Career.jpg" alt="OHS Career" class="book-cover-compact-v2" onerror="this.onerror=null;this.src='https://placehold.co/60x90/374151/e5e7eb?text=SFCR';">
+                        <p class="book-title-compact">OHS Career</p>
+                    </div>
+                    <div class="text-center" onclick="openBookModalV2('book-plans-v2')">
+                        <img src="./assets/photos/SF_Plans.jpg" alt="OHS Plans" class="book-cover-compact-v2" onerror="this.onerror=null;this.src='https://placehold.co/60x90/374151/e5e7eb?text=SFPL';">
+                        <p class="book-title-compact">OHS Plans</p>
+                    </div>
+                </div>
             </div>
-            <div class="grid-card-v3" onclick="openResourcesInfoModalV3()">
-                <i class="fas fa-folder-open card-icon-v3 icon-resources"></i>
-                <h3>OHS Resources</h3>
-                <p>Access key legislation, bodies & training links.</p>
+
+            <div class="grid-item-v2" onclick="openResourcesModalV2()">
+                <div class="item-icon"><i class="fas fa-folder-open"></i></div>
+                <h3>Valuable Resources</h3>
+                <p>Access key legislation, professional bodies, and free training links.</p>
+                <button>Explore Resources</button>
             </div>
-            <div class="grid-card-v3">
-                <i class="fas fa-rocket card-icon-v3 icon-launch"></i>
-                <h3>Launch Imminent!</h3>
-                <p>June 1, 2025. Get ready for the change!</p>
+            
+            <div class="grid-item-v2">
+                <div class="item-icon"><i class="fas fa-envelope-open-text"></i></div>
+                <h3>Stay Updated</h3>
+                <p>The future is almost here! Contact us for early insights.</p>
+                <button onclick="window.location.href='mailto:salatiso@salatiso.com'">Email Us</button>
             </div>
         </div>
     </main>
 
-    <footer class="footer-v3">
-        <p>Salatiso Mdeni, Founder | Reach out: <a href="mailto:salatiso@salatiso.com">salatiso@salatiso.com</a></p>
-        <p>&copy; <span id="currentYearV3"></span> SafetyHelp. Safety Personalized, Compliance Simplified.</p>
+    <footer class="footer-v2">
+        <p>Salatiso Mdeni, Founder | &copy; <span id="currentYearV2"></span> SafetyHelp. All rights reserved.</p>
     </footer>
 
-    <div id="why-modal-v3" class="modal-v3">
-        <div class="modal-content-v3">
-            <div class="modal-header-v3">
-                <h2><i class="fas fa-lightbulb mr-2 icon-why"></i>Why We're Building SafetyHelp</h2>
-                <span class="close-icon-modal-v3" onclick="closeModalV3('why-modal-v3')">&times;</span>
+    <div id="feature-modal-v2" class="modal-v2">
+        <div class="modal-content-v2">
+            <div class="modal-header-v2">
+                <h2><i class="fas fa-cogs mr-2"></i>Our Innovations</h2>
+                <span class="close-icon-v2" onclick="closeModalV2('feature-modal-v2')">&times;</span>
             </div>
-            <div class="modal-body-v3">
-                <p class="mb-6 text-gray-700">Because safety isn't just a regulation, it's a right. We believe everyone deserves to work and live in an environment free from preventable harm. SafetyHelp will empower you with the tools and knowledge to make this a reality.</p>
-                <div class="benefit-item-v3">
-                    <i class="fas fa-users"></i>
-                    <h4>For Everyone</h4>
-                    <p>Tools for businesses, schools, construction sites, and even your local community.</p>
-                </div>
-                <div class="benefit-item-v3">
-                    <i class="fas fa-tools"></i>
-                    <h4>Simple & Smart</h4>
-                    <p>AI-driven assistance and intuitive wizards to simplify complex OHS tasks.</p>
-                </div>
-                <div class="benefit-item-v3">
-                    <i class="fas fa-language"></i>
-                    <h4>Accessible to All</h4>
-                    <p>Multilingual support to ensure no one is left behind in our mission for safety.</p>
-                </div>
+            <div class="modal-body-v2">
+                <h3 class="text-xl font-semibold text-sky-400 mb-2">AI-Powered Compliance</h3>
+                <p class="mb-4 text-gray-300">Navigate complex OHS regulations with intelligent assistance and automated document generation. SafetyHelp will simplify your legal obligations.</p>
+                <h3 class="text-xl font-semibold text-sky-400 mb-2">Interactive Training Modules</h3>
+                <p class="mb-4 text-gray-300">Engaging and practical courses to empower your team with essential safety knowledge, accessible anytime, anywhere.</p>
+                <h3 class="text-xl font-semibold text-sky-400 mb-2">Community Safety Tools</h3>
+                <p class="text-gray-300">Report hazards in your community, access safety checklists for various establishments, and contribute to a safer environment for everyone in South Africa.</p>
             </div>
-            <div class="modal-footer-v3">
-                <button class="btn-close-modal-v3" onclick="closeModalV3('why-modal-v3')">Close</button>
+            <div class="modal-footer-v2">
+                <button class="btn-close-v2" onclick="closeModalV2('feature-modal-v2')">Close</button>
             </div>
         </div>
     </div>
 
-    <div id="books-info-modal-v3" class="modal-v3">
-        <div class="modal-content-v3">
-            <div class="modal-header-v3">
-                <h2 id="book-modal-title-v3"><i class="fas fa-book-reader mr-2 icon-books"></i>Inspired by Books</h2>
-                <span class="close-icon-modal-v3" onclick="closeModalV3('books-info-modal-v3')">&times;</span>
+    <div id="book-modal-v2" class="modal-v2">
+        <div class="modal-content-v2">
+            <div class="modal-header-v2">
+                <h2 id="book-modal-title-v2">Book Details</h2>
+                <span class="close-icon-v2" onclick="closeModalV2('book-modal-v2')">&times;</span>
             </div>
-            <div class="modal-body-v3" id="book-modal-body-v3">
-                </div>
-            <div class="modal-footer-v3">
-                <a id="book-modal-gp-link-v3" href="#" target="_blank" class="btn-action-modal-v3" style="background-color: #0ea5e9; margin-right:auto;">View on Google Play</a>
-                <button class="btn-close-modal-v3" onclick="closeModalV3('books-info-modal-v3')">Close</button>
+            <div class="modal-body-v2" id="book-modal-body-v2"></div>
+            <div class="modal-footer-v2">
+                <a id="book-modal-gp-link-v2" href="#" target="_blank" class="btn-primary-modal-v2" style="margin-right:auto;">View on Google Play</a>
+                <button class="btn-close-v2" onclick="closeModalV2('book-modal-v2')">Close</button>
             </div>
         </div>
     </div>
 
-    <div id="resources-info-modal-v3" class="modal-v3">
-        <div class="modal-content-v3">
-            <div class="modal-header-v3">
-                <h2><i class="fas fa-folder-open mr-2 icon-resources"></i>OHS Resources</h2>
-                <span class="close-icon-modal-v3" onclick="closeModalV3('resources-info-modal-v3')">&times;</span>
+    <div id="resources-modal-v2" class="modal-v2">
+        <div class="modal-content-v2">
+            <div class="modal-header-v2">
+                <h2><i class="fas fa-folder-open mr-2"></i>OHS Resources</h2>
+                <span class="close-icon-v2" onclick="closeModalV2('resources-modal-v2')">&times;</span>
             </div>
-            <div class="modal-body-v3">
-                <div class="resource-category-v3">
+            <div class="modal-body-v2">
+                <div class="resource-category-v2">
                     <h4><i class="fas fa-balance-scale"></i> Key Legislation</h4>
-                    <ul class="resource-list-v3">
+                    <ul class="resource-list-v2">
                         <li><a href="https://www.gov.za/documents/constitution-republic-south-africa-1996" target="_blank"><i class="fas fa-landmark"></i> SA Constitution</a></li>
                         <li><a href="https://www.gov.za/documents/occupational-health-and-safety-act" target="_blank"><i class="fas fa-hard-hat"></i> OHS Act 85 of 1993</a></li>
                         <li><a href="https://www.gov.za/documents/compensation-occupational-injuries-and-diseases-act" target="_blank"><i class="fas fa-first-aid"></i> COID Act</a></li>
@@ -285,142 +311,125 @@
                         <li><a href="https://www.gov.za/documents/national-building-regulations-and-building-standards-act" target="_blank"><i class="fas fa-building"></i> National Building Regulations</a></li>
                     </ul>
                 </div>
-                <div class="resource-category-v3">
+                <div class="resource-category-v2">
                     <h4><i class="fas fa-users-cog"></i> Professional Bodies</h4>
-                    <ul class="resource-list-v3">
+                    <ul class="resource-list-v2">
                         <li><a href="https://www.saiosh.co.za/" target="_blank"><i class="fas fa-id-badge"></i> SAIOSH</a></li>
                         <li><a href="https://www.saioh.co.za/" target="_blank"><i class="fas fa-microscope"></i> SAIOH</a></li>
                         <li><a href="https://www.sacpcmp.org.za/" target="_blank"><i class="fas fa-drafting-compass"></i> SACPCMP</a></li>
                         <li><a href="https://masterbuilders.org.za/" target="_blank"><i class="fas fa-hard-hat"></i> Master Builders SA</a></li>
                     </ul>
                 </div>
-                <div class="resource-category-v3">
+                <div class="resource-category-v2">
                     <h4><i class="fas fa-graduation-cap"></i> Free Training Resources</h4>
-                    <ul class="resource-list-v3">
+                    <ul class="resource-list-v2">
                         <li><a href="https://alison.com/courses/health-and-safety" target="_blank"><i class="fab fa-leanpub"></i> Alison - Safety Courses</a></li>
                         <li><a href="https://www.oxfordhomestudy.com/free-online-courses-with-certificates/free-online-health-and-safety-courses" target="_blank"><i class="fas fa-university"></i> Oxford Home Study - Free H&S</a></li>
                     </ul>
                 </div>
-                <div class="resource-category-v3">
+                <div class="resource-category-v2">
                     <h4><i class="fas fa-newspaper"></i> Publications & Info</h4>
-                    <ul class="resource-list-v3">
+                    <ul class="resource-list-v2">
                         <li><a href="https://safety1st.co.za/" target="_blank"><i class="fas fa-globe-africa"></i> Safety First Association</a></li>
                         <li><a href="https://www.sabs.co.za/" target="_blank"><i class="fas fa-certificate"></i> SABS (Standards)</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="modal-footer-v3">
-                <button class="btn-close-modal-v3" onclick="closeModalV3('resources-info-modal-v3')">Close</button>
+            <div class="modal-footer-v2">
+                <button class="btn-close-v2" onclick="closeModalV2('resources-modal-v2')">Close</button>
             </div>
         </div>
     </div>
 
-
     <script>
-        // Countdown Timer V3
-        const launchDateV3 = new Date("June 1, 2025 00:00:00").getTime();
-        const countdownContainerV3 = document.getElementById('countdownV3');
-
-        function createTileV3(number, label) {
-            return `
-                <div class="countdown-tile-v3 text-center">
-                    <div class="number-v3">${String(number).padStart(2, '0')}</div>
-                    <div class="label-v3">${label}</div>
-                </div>`;
+        // Animated Headline
+        const headlineTextV2 = "SafetyHelp is Coming!";
+        const animatedHeadlineV2 = document.getElementById('animatedHeadlineV2');
+        if(animatedHeadlineV2) {
+            headlineTextV2.split('').forEach((letter, index) => {
+                const span = document.createElement('span');
+                span.textContent = letter === ' ' ? '\u00A0' : letter;
+                span.style.animationDelay = `${index * 0.07}s`;
+                animatedHeadlineV2.appendChild(span);
+            });
         }
 
-        function updateCountdownV3() {
+        // Countdown Timer
+        const launchDateV2 = new Date("June 1, 2025 00:00:00").getTime();
+        const countdownElementV2 = document.getElementById('countdownV2');
+
+        function updateCountdownV2() {
             const now = new Date().getTime();
-            const distance = launchDateV3 - now;
-            if (!countdownContainerV3) return;
+            const distance = launchDateV2 - now;
 
             if (distance < 0) {
-                countdownContainerV3.innerHTML = "<p class='col-span-2 sm:col-span-4 text-xl font-bold'>We're Live!</p>";
-                clearInterval(countdownIntervalV3);
+                if(countdownElementV2) countdownElementV2.innerHTML = "<p class='text-xl font-bold text-green-400 py-2'>We're Live!</p>";
+                clearInterval(countdownIntervalV2);
                 return;
             }
+
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            countdownContainerV3.innerHTML = createTileV3(days, 'Days') + createTileV3(hours, 'Hours') + createTileV3(minutes, 'Mins') + createTileV3(seconds, 'Secs');
+
+            if(countdownElementV2) {
+                countdownElementV2.innerHTML = `
+                    <div class="countdown-item-v2"><span>${days}</span><p>Days</p></div>
+                    <div class="countdown-item-v2"><span>${hours}</span><p>Hours</p></div>
+                    <div class="countdown-item-v2"><span>${minutes}</span><p>Minutes</p></div>
+                    <div class="countdown-item-v2"><span>${seconds}</span><p>Seconds</p></div>
+                `;
+            }
         }
-        const countdownIntervalV3 = setInterval(updateCountdownV3, 1000);
-        updateCountdownV3();
+        const countdownIntervalV2 = setInterval(updateCountdownV2, 1000);
+        updateCountdownV2();
 
-        document.getElementById('currentYearV3').textContent = new Date().getFullYear();
+        document.getElementById('currentYearV2').textContent = new Date().getFullYear();
 
-        // Modal Functions V3
-        function openModalV3(modalId) {
+        // Modal Functions V2
+        function openModalV2(modalId) {
             const modal = document.getElementById(modalId);
             if (modal) modal.style.display = 'flex';
         }
-        function closeModalV3(modalId) {
+        function closeModalV2(modalId) {
             const modal = document.getElementById(modalId);
             if (modal) modal.style.display = 'none';
         }
-        
-        function openWhyModalV3() { openModalV3('why-modal-v3'); }
-        function openResourcesInfoModalV3() { openModalV3('resources-info-modal-v3'); }
 
-        // Book Data & Modal Logic V3 (Similar to V2, adjust IDs and classes if needed)
-        const bookDataV3 = { // Use distinct data object if summaries differ, or reuse if identical
-            'book-career-v3': { // Unique ID for this version's book trigger
+        function openFeatureModalV2() { openModalV2('feature-modal-v2'); }
+        function openResourcesModalV2() { openModalV2('resources-modal-v2'); }
+        
+        // Book Data & Modal Logic V2
+        const bookDataV2 = {
+            'book-career-v2': {
                 title: 'Safety First: Essentials for Your OHS Career Journey', authors: 'By Salatiso Lonwabo Mdeni', cover: './assets/photos/SF_Career.jpg',
                 googlePlayLink: 'https://play.google.com/books/reader?id=vscJEQAAQBAJ&pg=GBS.PA1&hl=en_IE',
                 summaryPages: [ "In an era where safety transcends borders...", "This book draws inspiration...", "OHS is not confined to the walls...", "Here’s what this guide unlocks...", "Whether you’re a fresh school leaver...", "For those seeking an even deeper dive...", "This book is your empowerment tool..." ], currentPage: 0
             },
-            'book-plans-v3': {
+            'book-plans-v2': {
                 title: 'Safety First: The Essentials of OHS Plans', authors: 'By Salatiso Lonwabo Mdeni', cover: './assets/photos/SF_Plans.jpg',
                 googlePlayLink: 'https://play.google.com/books/reader?id=psgJEQAAQBAJ&pg=GBS.PA1&hl=en_IE',
                 summaryPages: [ "In our increasingly interconnected world...", "While we\'ll leverage South Africa\'s strong safety culture...", "This book focuses on building a robust OHS plan...", "This is more than just a compliance guide...", "Are you ready to build a safer, healthier workplace?", "Looking to delve deeper? Other books include...", "This book is your empowerment tool..." ], currentPage: 0
             }
         };
-        let currentBookIdV3 = 'book-career-v3'; // Default or first book to show
+        let currentBookIdV2 = null;
 
-        function openBooksInfoModalV3(initialBookId = 'book-career-v3') { // Default to career book or allow specific
-            currentBookIdV3 = initialBookId; // Set the book to display
-            const book = bookDataV3[currentBookIdV3];
-            if (!book) { // Fallback if a specific book isn't found, show the first one
-                 currentBookIdV3 = Object.keys(bookDataV3)[0];
-                 if(!bookDataV3[currentBookIdV3]) return; // No books defined
-            }
-            
-            bookDataV3[currentBookIdV3].currentPage = 0; // Reset page
-            document.getElementById('book-modal-title-v3').innerHTML = `<i class="fas fa-book-reader mr-2 icon-books"></i> ${bookDataV3[currentBookIdV3].title}`;
-            document.getElementById('book-modal-gp-link-v3').href = bookDataV3[currentBookIdV3].googlePlayLink;
-            renderBookSummaryPageV3();
-            openModalV3('books-info-modal-v3');
+        function openBookModalV2(bookId) {
+            currentBookIdV2 = bookId; const book = bookDataV2[bookId]; if (!book) return;
+            book.currentPage = 0; 
+            document.getElementById('book-modal-title-v2').innerHTML = `<i class="fas fa-book mr-2"></i> ${book.title}`;
+            document.getElementById('book-modal-gp-link-v2').href = book.googlePlayLink;
+            renderBookSummaryPageV2(); openModalV2('book-modal-v2');
         }
 
-        function renderBookSummaryPageV3() {
-            const book = bookDataV3[currentBookIdV3];
-            const modalBody = document.getElementById('book-modal-body-v3');
-            if (!book || !modalBody) return;
-
-            let summaryHtml = `
-                <img src="${book.cover}" alt="${book.title}" class="book-modal-cover-v3" onerror="this.onerror=null;this.src='https://placehold.co/130x195/e0e0e0/333?text=Cover';">
-                <p class="book-modal-authors-v3">${book.authors}</p>
-                <div style="clear:both; margin-top:10px;"> <p>${book.summaryPages[book.currentPage]}</p>
-                </div>
-                <div class="summary-pagination-v3">
-                    <button id="prev-page-btn-v3" onclick="changeBookPageV3(-1)" ${book.currentPage === 0 ? 'disabled' : ''}>Prev</button>
-                    <span class="page-info-v3">Page ${book.currentPage + 1} of ${book.summaryPages.length}</span>
-                    <button id="next-page-btn-v3" onclick="changeBookPageV3(1)" ${book.currentPage === book.summaryPages.length - 1 ? 'disabled' : ''}>Next</button>
-                </div>`;
+        function renderBookSummaryPageV2() {
+            const book = bookDataV2[currentBookIdV2]; const modalBody = document.getElementById('book-modal-body-v2');
+            let summaryHtml = `<img src="${book.cover}" alt="${book.title}" class="book-modal-cover-v2" onerror="this.onerror=null;this.src='https://placehold.co/120x180/4b5563/9ca3af?text=Cover';"> <p class="book-modal-authors-v2">${book.authors}</p> <div style="clear:both;"><p>${book.summaryPages[book.currentPage]}</p></div> <div class="summary-pagination-v2"> <button id="prev-page-btn-v2" onclick="changeBookPageV2(-1)" ${book.currentPage === 0 ? 'disabled' : ''}>Prev</button> <span class="page-info-v2">Page ${book.currentPage + 1}/${book.summaryPages.length}</span> <button id="next-page-btn-v2" onclick="changeBookPageV2(1)" ${book.currentPage === book.summaryPages.length - 1 ? 'disabled' : ''}>Next</button> </div>`;
             modalBody.innerHTML = summaryHtml;
         }
-        function changeBookPageV3(direction) {
-            const book = bookDataV3[currentBookIdV3];
-            if (!book) return;
-            book.currentPage += direction;
-            renderBookSummaryPageV3();
-        }
-        // Add event listeners to book cards if you have multiple triggers
-        // For this grid layout, the openBooksInfoModalV3 is called directly with a default/single book.
-        // If you had separate cards for each book on the main page:
-        // document.getElementById('career-book-card-trigger-v3').addEventListener('click', () => openBooksInfoModalV3('book-career-v3'));
-        // document.getElementById('plans-book-card-trigger-v3').addEventListener('click', () => openBooksInfoModalV3('book-plans-v3'));
+        function changeBookPageV2(direction) { const book = bookDataV2[currentBookIdV2]; book.currentPage += direction; renderBookSummaryPageV2(); }
+
     </script>
 </body>
 </html>
