@@ -3,186 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SafetyHelp - Unveiling the Future of OHS</title>
+    <title>SafetyHelp - Building a Safer Tomorrow, Together</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #111827; /* Dark background */
-            color: #e5e7eb; /* Light text */
-            overflow-x: hidden;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f3f4f6; /* Light gray background */
+            color: #1f2937; /* Dark gray text */
         }
-        .hero-bg {
-            background: linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.9)), url('https://placehold.co/1920x1080/374151/1f2937?text=Abstract+Safety+Tech') no-repeat center center / cover;
+        .hero-section {
+            background: linear-gradient(to right, #34d399, #22d3ee); /* Emerald to Cyan gradient */
+            color: white;
         }
-        .countdown-item span {
-            font-size: 3rem; /* Larger countdown numbers */
-            font-weight: 800;
-            line-height: 1;
+        .countdown-tile {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            border-radius: 0.75rem;
+            padding: 1rem 1.5rem;
         }
-        .countdown-item p {
-            font-size: 0.875rem;
+        .countdown-tile .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        .countdown-tile .label {
+            font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
         }
-        .feature-card {
+        .section-icon {
+            background-color: #34d399; /* Emerald */
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .benefit-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e5e7eb;
         }
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 255, 255, 0.1), 0 10px 10px -5px rgba(0, 255, 255, 0.08);
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
-        .book-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .book-highlight {
+            border-left: 4px solid #34d399; /* Emerald accent */
         }
-        .book-card:hover {
+        .cta-button {
+            background-color: #10b981; /* Emerald (darker shade) */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .cta-button:hover {
+            background-color: #059669;
             transform: scale(1.05);
         }
-        .animated-text span {
-            display: inline-block;
+        .footer-bg {
+            background-color: #374151; /* Cool Gray 700 */
+        }
+
+        /* Animation for elements appearing on scroll */
+        .animate-on-scroll {
             opacity: 0;
-            animation: fadeInLetter 0.5s forwards;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
-        @keyframes fadeInLetter {
-            to {
-                opacity: 1;
-            }
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
         }
-        .btn-primary {
-            background-color: #0ea5e9; /* Sky blue */
-            transition: background-color 0.3s ease;
-        }
-        .btn-primary:hover {
-            background-color: #0284c7; /* Darker sky blue */
-        }
-        .section-title-underline {
-            position: relative;
-            padding-bottom: 0.5rem;
-        }
-        .section-title-underline::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background-color: #0ea5e9; /* Sky blue */
-            border-radius: 2px;
-        }
+
     </style>
 </head>
 <body class="antialiased">
 
-    <header class="hero-bg py-16 md:py-24 text-center">
+    <section class="hero-section py-20 md:py-28 text-center">
         <div class="container mx-auto px-6">
-            <div class="mb-8">
-                <i class="fas fa-hard-hat text-5xl md:text-6xl text-sky-400"></i>
+            <div class="mb-6">
+                <i class="fas fa-shield-alt text-6xl md:text-7xl"></i>
             </div>
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 animated-text" id="animatedHeadline">
-                </h1>
-            <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
-                Get ready to revolutionize your approach to Occupational Health & Safety. SafetyHelp is launching soon to make compliance simpler, smarter, and more accessible for everyone in South Africa.
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">Building a Safer Tomorrow, Together!</h1>
+            <p class="text-lg md:text-xl mb-10 max-w-3xl mx-auto leading-relaxed">
+                SafetyHelp is on its way! We're crafting a revolutionary platform to make Occupational Health & Safety straightforward and effective for every South African workplace and community.
             </p>
 
-            <div id="countdown" class="flex justify-center space-x-4 md:space-x-8 mb-12">
+            <div id="countdown" class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-xl mx-auto mb-12">
                 </div>
 
-            <a href="#features" class="btn-primary text-white font-semibold py-3 px-8 rounded-lg text-lg hover:shadow-xl">
-                Discover What's Coming <i class="fas fa-arrow-down ml-2"></i>
+            <a href="#join-us" class="cta-button text-white font-semibold py-3 px-10 rounded-full text-lg shadow-lg">
+                Learn How You Can Prepare <i class="fas fa-arrow-circle-down ml-2"></i>
             </a>
         </div>
-    </header>
+    </section>
 
-    <main class="container mx-auto px-6 py-12 md:py-20">
+    <div class="container mx-auto px-6 py-16">
 
-        <section id="features" class="mb-16 md:mb-24">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-2 section-title-underline">Unveiling Our Innovations</h2>
-            <p class="text-center text-gray-400 mb-12 max-w-xl mx-auto">We're building a suite of tools designed with you in mind.</p>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="feature-card bg-gray-800 p-8 rounded-xl shadow-lg">
-                    <div class="text-sky-400 mb-4">
-                        <i class="fas fa-cogs text-4xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3">AI-Powered Compliance</h3>
-                    <p class="text-gray-400">Navigate complex OHS regulations with intelligent assistance and automated document generation.</p>
+        <section id="why-safetyhelp" class="mb-20 text-center">
+            <div class="section-icon animate-on-scroll">
+                <i class="fas fa-lightbulb text-2xl"></i>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 animate-on-scroll">Why We're Building SafetyHelp</h2>
+            <p class="text-gray-600 leading-relaxed max-w-2xl mx-auto mb-12 animate-on-scroll">
+                Because safety isn't just a regulation, it's a right. We believe everyone deserves to work and live in an environment free from preventable harm. SafetyHelp will empower you with the tools and knowledge to make this a reality.
+            </p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="benefit-card bg-white p-8 rounded-lg shadow-md animate-on-scroll" style="transition-delay: 0.1s;">
+                    <i class="fas fa-users text-3xl text-emerald-500 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">For Everyone</h3>
+                    <p class="text-gray-500 text-sm">Tools for businesses, schools, construction sites, and even your local community.</p>
                 </div>
-                <div class="feature-card bg-gray-800 p-8 rounded-xl shadow-lg">
-                    <div class="text-sky-400 mb-4">
-                        <i class="fas fa-chalkboard-teacher text-4xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3">Interactive Training</h3>
-                    <p class="text-gray-400">Engaging modules and resources to empower your team with essential safety knowledge.</p>
+                <div class="benefit-card bg-white p-8 rounded-lg shadow-md animate-on-scroll" style="transition-delay: 0.2s;">
+                    <i class="fas fa-tools text-3xl text-emerald-500 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Simple & Smart</h3>
+                    <p class="text-gray-500 text-sm">AI-driven assistance and intuitive wizards to simplify complex OHS tasks.</p>
                 </div>
-                <div class="feature-card bg-gray-800 p-8 rounded-xl shadow-lg">
-                    <div class="text-sky-400 mb-4">
-                        <i class="fas fa-users text-4xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3">Community Safety Tools</h3>
-                    <p class="text-gray-400">Report hazards, access checklists, and contribute to a safer environment for everyone.</p>
+                <div class="benefit-card bg-white p-8 rounded-lg shadow-md animate-on-scroll" style="transition-delay: 0.3s;">
+                    <i class="fas fa-language text-3xl text-emerald-500 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Accessible to All</h3>
+                    <p class="text-gray-500 text-sm">Multilingual support to ensure no one is left behind in our mission for safety.</p>
                 </div>
             </div>
         </section>
 
-        <section class="mb-16 md:mb-24">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-2 section-title-underline">Inspired by Innovation & Expertise</h2>
-            <p class="text-center text-gray-400 mb-12 max-w-xl mx-auto">Our foundation is built on the insightful "Safety First" series by Salatiso Lonwabo Mdeni.</p>
-            <div class="grid md:grid-cols-2 gap-8 items-center">
-                <div class="book-card bg-gray-800 p-6 rounded-lg shadow-md text-center">
-                    <a href="https://play.google.com/books/reader?id=vscJEQAAQBAJ&pg=GBS.PA1&hl=en_IE" target="_blank">
-                        <img src="./assets/photos/SF_Career.jpg" alt="Safety First: Essentials for Your OHS Career" class="w-1/2 max-w-xs mx-auto h-auto rounded-md shadow-lg mb-4" onerror="this.onerror=null;this.src='https://placehold.co/200x300/374151/e5e7eb?text=Book+Cover';">
+        <section class="mb-20">
+             <div class="section-icon mx-auto animate-on-scroll">
+                <i class="fas fa-book-reader text-2xl"></i>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-6 animate-on-scroll">Fuelled by Knowledge</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-xl mx-auto animate-on-scroll">
+                The "Safety First" book series by Salatiso Lonwabo Mdeni provides the foundational wisdom and practical insights that inspire SafetyHelp.
+            </p>
+            <div class="grid md:grid-cols-2 gap-10 items-stretch">
+                <div class="book-highlight bg-white p-6 rounded-lg shadow-sm flex flex-col md:flex-row items-center gap-6 animate-on-scroll">
+                    <a href="https://play.google.com/books/reader?id=vscJEQAAQBAJ&pg=GBS.PA1&hl=en_IE" target="_blank" class="shrink-0">
+                        <img src="./assets/photos/SF_Career.jpg" alt="Safety First: Essentials for Your OHS Career" class="w-32 h-auto md:w-40 rounded-md shadow-lg object-cover" onerror="this.onerror=null;this.src='https://placehold.co/160x240/e5e7eb/1f2937?text=Book';">
                     </a>
-                    <h3 class="text-xl font-semibold text-sky-400">Safety First: Essentials for Your OHS Career Journey</h3>
-                    <p class="text-sm text-gray-500">By Salatiso Lonwabo Mdeni</p>
+                    <div>
+                        <h3 class="text-lg font-semibold text-emerald-600 mb-1">Safety First: Essentials for Your OHS Career Journey</h3>
+                        <p class="text-xs text-gray-500 mb-2">By Salatiso Lonwabo Mdeni</p>
+                        <p class="text-sm text-gray-600">A pivotal guide for aspiring and established OHS professionals, offering a streamlined path to a fulfilling career.</p>
+                    </div>
                 </div>
-                <div class="book-card bg-gray-800 p-6 rounded-lg shadow-md text-center">
-                    <a href="https://play.google.com/books/reader?id=psgJEQAAQBAJ&pg=GBS.PA1&hl=en_IE" target="_blank">
-                        <img src="./assets/photos/SF_Plans.jpg" alt="Safety First: The Essentials of OHS Plans" class="w-1/2 max-w-xs mx-auto h-auto rounded-md shadow-lg mb-4" onerror="this.onerror=null;this.src='https://placehold.co/200x300/374151/e5e7eb?text=Book+Cover';">
+                <div class="book-highlight bg-white p-6 rounded-lg shadow-sm flex flex-col md:flex-row items-center gap-6 animate-on-scroll">
+                     <a href="https://play.google.com/books/reader?id=psgJEQAAQBAJ&pg=GBS.PA1&hl=en_IE" target="_blank" class="shrink-0">
+                        <img src="./assets/photos/SF_Plans.jpg" alt="Safety First: The Essentials of OHS Plans" class="w-32 h-auto md:w-40 rounded-md shadow-lg object-cover" onerror="this.onerror=null;this.src='https://placehold.co/160x240/e5e7eb/1f2937?text=Book';">
                     </a>
-                    <h3 class="text-xl font-semibold text-sky-400">Safety First: The Essentials of OHS Plans</h3>
-                    <p class="text-sm text-gray-500">By Salatiso Lonwabo Mdeni</p>
+                    <div>
+                        <h3 class="text-lg font-semibold text-emerald-600 mb-1">Safety First: The Essentials of OHS Plans</h3>
+                        <p class="text-xs text-gray-500 mb-2">By Salatiso Lonwabo Mdeni</p>
+                        <p class="text-sm text-gray-600">Essential knowledge and tools to establish a safe and healthy workplace, irrespective of geographic location.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">The Future is Almost Here!</h2>
-            <p class="text-gray-400 mb-8 max-w-lg mx-auto">Don't miss out on the launch. Follow us for the latest updates and be among the first to experience SafetyHelp.</p>
-            <div class="flex justify-center space-x-6">
-                <a href="mailto:salatiso@salatiso.com" class="text-sky-400 hover:text-sky-300 text-3xl transition-colors"><i class="fas fa-envelope"></i></a>
-                </div>
+        <section id="join-us" class="bg-white p-10 md:p-16 rounded-xl shadow-xl text-center animate-on-scroll">
+            <div class="section-icon mx-auto !bg-cyan-500">
+                <i class="fas fa-rocket text-2xl"></i>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Get Ready to Make a Difference!</h2>
+            <p class="text-gray-600 leading-relaxed max-w-2xl mx-auto mb-8">
+                SafetyHelp is more than a platform; it's a movement towards a culture of safety. While we prepare for launch, start thinking about how you can champion safety in your environment.
+            </p>
+            <p class="text-gray-700 font-semibold">Launch Date: June 1, 2026</p>
+            <p class="text-sm text-gray-500 mt-2">We can't wait to share it with you!</p>
         </section>
-    </main>
+    </div>
 
-    <footer class="bg-gray-900 text-gray-400 text-center py-10 mt-16 md:mt-24">
-        <p><i class="fas fa-user-shield mr-2"></i>Salatiso Mdeni, Founder</p>
-        <p>&copy; <span id="currentYear"></span> SafetyHelp. All rights reserved. Safety Personalized, Compliance Simplified.</p>
-        <p class="mt-2">Reach out: <a href="mailto:salatiso@salatiso.com" class="text-sky-500 hover:text-sky-400">salatiso@salatiso.com</a></p>
+    <footer class="footer-bg text-gray-300 text-center py-12 mt-16">
+        <div class="container mx-auto px-6">
+            <div class="mb-4">
+                <i class="fas fa-hard-hat text-3xl text-emerald-400"></i>
+            </div>
+            <p class="font-semibold text-lg">SafetyHelp</p>
+            <p class="text-sm">Making OHS compliance accessible to all.</p>
+            <div class="mt-6">
+                <p>Got questions or ideas? Reach out:</p>
+                <a href="mailto:salatiso@salatiso.com" class="text-emerald-400 hover:text-emerald-300 transition-colors">salatiso@salatiso.com</a>
+                <p class="mt-1">Salatiso Mdeni, Founder</p>
+            </div>
+            <p class="text-xs text-gray-500 mt-8">&copy; <span id="currentYear"></span> SafetyHelp. All Rights Reserved.</p>
+        </div>
     </footer>
 
     <script>
-        // Animated Headline
-        const headlineText = "SafetyHelp is Coming!";
-        const animatedHeadline = document.getElementById('animatedHeadline');
-        headlineText.split('').forEach((letter, index) => {
-            const span = document.createElement('span');
-            span.textContent = letter === ' ' ? '\u00A0' : letter; // Handle spaces
-            span.style.animationDelay = `${index * 0.1}s`;
-            animatedHeadline.appendChild(span);
-        });
-
         // Countdown Timer
         const launchDate = new Date("June 1, 2026 00:00:00").getTime();
-        const countdownElement = document.getElementById('countdown');
+        const countdownContainer = document.getElementById('countdown');
+
+        function createTile(number, label) {
+            return `
+                <div class="countdown-tile text-center">
+                    <div class="number">${String(number).padStart(2, '0')}</div>
+                    <div class="label">${label}</div>
+                </div>
+            `;
+        }
 
         function updateCountdown() {
             const now = new Date().getTime();
             const distance = launchDate - now;
 
             if (distance < 0) {
-                countdownElement.innerHTML = "<p class='text-2xl font-bold text-green-400'>We're Live!</p>";
+                countdownContainer.innerHTML = "<p class='col-span-2 sm:col-span-4 text-2xl font-bold text-white'>We're Live!</p>";
                 clearInterval(countdownInterval);
                 return;
             }
@@ -192,12 +219,11 @@
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            countdownElement.innerHTML = `
-                <div class="countdown-item text-sky-300"><span>${days}</span><p>Days</p></div>
-                <div class="countdown-item text-sky-300"><span>${hours}</span><p>Hours</p></div>
-                <div class="countdown-item text-sky-300"><span>${minutes}</span><p>Minutes</p></div>
-                <div class="countdown-item text-sky-300"><span>${seconds}</span><p>Seconds</p></div>
-            `;
+            countdownContainer.innerHTML = 
+                createTile(days, 'Days') +
+                createTile(hours, 'Hours') +
+                createTile(minutes, 'Minutes') +
+                createTile(seconds, 'Seconds');
         }
         const countdownInterval = setInterval(updateCountdown, 1000);
         updateCountdown(); // Initial call
@@ -209,11 +235,30 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const targetElement = document.querySelector(this.getAttribute('href'));
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
+
+        // Animate on scroll
+        const animatedElements = document.querySelectorAll('.animate-on-scroll');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Optional: stop observing once animated
+                }
+            });
+        }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
+
+        animatedElements.forEach(el => {
+            observer.observe(el);
+        });
+
     </script>
 
 </body>
