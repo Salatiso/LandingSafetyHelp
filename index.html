@@ -13,8 +13,8 @@
             overflow: hidden;
             margin: 0;
             font-family: 'Inter', sans-serif;
-            background-color: #111827; /* Dark background base */
-            color: #e5e7eb; /* Light text */
+            background-color: #1a202c; /* Darker base for SafetyHelp theme */
+            color: #e2e8f0; /* Light text */
         }
         body {
             display: flex;
@@ -32,24 +32,24 @@
             z-index: -100;
             transform: translateX(-50%) translateY(-50%);
             background-size: cover;
-            filter: brightness(0.5) contrast(1.1); /* Adjusted for dark theme */
+            filter: brightness(0.4) contrast(1.0); /* Adjusted for dark theme, ensure readability */
         }
 
         .header-v2 {
-            padding: 15px 10px; /* Compacted */
+            padding: 12px 10px; /* Slightly more padding */
             text-align: center;
             position: relative;
             z-index: 10;
-            background-color: rgba(17, 24, 39, 0.8); /* Semi-transparent dark */
+            background-color: rgba(26, 32, 44, 0.85); /* Semi-transparent dark (SafetyHelp dark tone) */
             flex-shrink: 0;
         }
-        .header-v2 .logo-icon {
-             font-size: 2.5rem; /* Adjusted */
-             color: #0ea5e9; /* Sky blue */
-             margin-bottom: 5px;
+        .header-v2 .safetyhelp-logo {
+             height: 40px; /* Adjust as needed */
+             width: auto;
+             margin-bottom: 8px;
         }
         .header-v2 h1 {
-            font-size: 1.8rem; /* Adjusted */
+            font-size: 2rem; /* Increased size */
             font-weight: 800;
             color: #fff;
         }
@@ -64,142 +64,156 @@
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Center the main content block */
+            justify-content: center;
             align-items: center;
-            padding: 10px; /* Reduced padding */
-            overflow: hidden; /* Prevent internal scroll of main */
+            padding: 15px; /* Increased padding */
+            overflow: hidden;
             position: relative;
             z-index: 10;
         }
         .content-grid-v2 {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2x2 grid for sections */
+            grid-template-columns: repeat(2, 1fr);
             grid-template-rows: auto auto;
-            gap: 15px; /* Space between grid items */
+            gap: 20px; /* Increased gap */
             width: 100%;
-            max-width: 900px; /* Max width for the grid */
-            max-height: calc(100vh - 220px); /* Approx height available */
+            max-width: 950px; /* Increased max width */
+            max-height: calc(100vh - 230px); /* Adjusted for new header/footer sizes */
         }
         .grid-item-v2 {
-            background-color: rgba(31, 41, 55, 0.85); /* Darker semi-transparent cards */
-            padding: 15px; /* Compact padding */
+            background-color: rgba(45, 55, 72, 0.9); /* Darker cards (SafetyHelp tone) */
+            padding: 20px; /* Increased padding */
             border-radius: 0.75rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.4);
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #2d3748; /* Border for cards */
         }
         .grid-item-v2:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 15px rgba(14, 165, 233, 0.2); /* Sky blue glow */
+            box-shadow: 0 10px 20px rgba(44, 122, 123, 0.3); /* #2c7a7b accent glow */
         }
         .grid-item-v2 .item-icon {
-            font-size: 2rem; /* Adjusted icon size */
-            color: #0ea5e9; /* Sky blue */
-            margin-bottom: 8px;
+            font-size: 2.2rem; /* Increased icon size */
+            color: #28a745; /* SafetyHelp Green */
+            margin-bottom: 10px;
         }
         .grid-item-v2 h3 {
-            font-size: 1.1rem; /* Adjusted title size */
+            font-size: 1.25rem; /* Increased title size */
             font-weight: 700;
-            margin-bottom: 5px;
-            color: #e5e7eb;
+            margin-bottom: 8px;
+            color: #e2e8f0;
         }
         .grid-item-v2 p, .grid-item-v2 button, .grid-item-v2 .book-title-compact {
-            font-size: 0.8rem; /* Adjusted text size */
-            color: #9ca3af; /* Lighter gray for descriptions */
+            font-size: 0.85rem; /* Increased text size */
+            color: #a0aec0; /* Lighter gray for descriptions */
         }
         .grid-item-v2 button {
-            margin-top: auto; /* Push button to bottom if space allows */
-            padding: 6px 12px;
-            background-color: #0ea5e9;
+            margin-top: auto;
+            padding: 8px 16px; /* Increased button padding */
+            background-color: #007bff; /* SafetyHelp Blue */
             color: white;
             border-radius: 0.375rem;
             transition: background-color 0.2s ease;
+            font-weight: 600;
         }
         .grid-item-v2 button:hover {
-            background-color: #0284c7;
+            background-color: #0056b3; /* Darker SafetyHelp Blue */
         }
         .book-cover-compact-v2 {
-            width: 60px; /* Small book cover */
-            height: 90px;
+            width: 70px; /* Slightly larger book cover */
+            height: 105px;
             object-fit: cover;
             border-radius: 4px;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             cursor: pointer;
+            border: 1px solid #4a5568;
         }
         .books-container-v2 {
             display: flex;
             justify-content: space-around;
             width: 100%;
+            margin-top: 10px; /* Added margin */
         }
-
 
         .countdown-container-v2 {
             display: flex;
             justify-content: center;
-            gap: 10px; /* Smaller gap */
-            margin-top: 10px; /* Space from headline */
-            margin-bottom: 15px; /* Space before content grid */
+            gap: 12px; /* Increased gap */
+            margin-top: 12px;
+            margin-bottom: 20px; /* Increased margin */
         }
         .countdown-item-v2 {
-            background-color: rgba(14, 165, 233, 0.2); /* Sky blue tint */
-            padding: 8px 12px; /* Compact padding */
-            border-radius: 0.375rem;
+            background-color: rgba(44, 122, 123, 0.3); /* #2c7a7b accent tint */
+            padding: 10px 15px; /* Increased padding */
+            border-radius: 0.5rem; /* Slightly larger radius */
             text-align: center;
+            min-width: 65px; /* Ensure items have some width */
         }
         .countdown-item-v2 span {
-            font-size: 1.5rem; /* Adjusted number size */
+            font-size: 1.8rem; /* Increased number size */
             font-weight: 700;
             line-height: 1;
-            color: #e5e7eb;
+            color: #e2e8f0;
         }
         .countdown-item-v2 p {
-            font-size: 0.65rem; /* Adjusted label size */
+            font-size: 0.7rem; /* Increased label size */
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            color: #9ca3af;
+            color: #a0aec0;
         }
 
         .footer-v2 {
-            padding: 10px; /* Compacted */
+            padding: 12px; /* Increased padding */
             text-align: center;
-            background-color: rgba(17, 24, 39, 0.9); /* Darker semi-transparent */
-            color: #9ca3af; /* Lighter gray */
-            font-size: 0.75rem; /* Adjusted */
+            background-color: rgba(26, 32, 44, 0.9); /* Darker semi-transparent */
+            color: #a0aec0;
+            font-size: 0.8rem; /* Increased size */
             flex-shrink: 0;
             position: relative;
             z-index: 10;
         }
-        .footer-v2 a { color: #0ea5e9; }
+        .footer-v2 a { color: #28a745; font-weight: 600; } /* SafetyHelp Green for links */
 
         /* Modal Styles */
-        .modal-v2 { display: none; position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); justify-content: center; align-items: center; padding: 15px; box-sizing: border-box;}
-        .modal-content-v2 { background-color: #1f2937; color: #e5e7eb; padding: 20px; border-radius: 0.75rem; width: 90%; max-width: 600px; max-height: 85vh; position: relative; animation: fadeInModalV2 0.3s ease-out; box-shadow: 0 10px 25px rgba(0,0,0,0.5); display: flex; flex-direction: column; }
-        .modal-header-v2 { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #374151; padding-bottom: 10px; margin-bottom: 15px; }
-        .modal-header-v2 h2 { margin: 0; font-size: 1.4em; color: #0ea5e9; }
-        .modal-body-v2 { overflow-y: auto; flex-grow: 1; line-height: 1.6; font-size: 0.9em; }
-        .modal-footer-v2 { padding-top: 15px; margin-top: 15px; border-top: 1px solid #374151; text-align: right; }
-        .modal-footer-v2 button, .modal-footer-v2 a { padding: 8px 15px; border-radius: 0.375rem; cursor: pointer; border: none; font-size: 0.9em; }
-        .btn-close-v2 { background-color: #4b5563; color: white; } .btn-close-v2:hover{ background-color: #374151;}
-        .btn-primary-modal-v2 { background-color: #0ea5e9; color: white; } .btn-primary-modal-v2:hover{ background-color: #0284c7;}
-        .close-icon-v2 { font-size: 1.5em; cursor: pointer; color: #9ca3af; } .close-icon-v2:hover{color: #e5e7eb;}
+        .modal-v2 { display: none; position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.85); justify-content: center; align-items: center; padding: 15px; box-sizing: border-box;}
+        .modal-content-v2 { background-color: #2d3748; /* Darker modal content bg */ color: #e2e8f0; padding: 25px; border-radius: 0.75rem; width: 90%; max-width: 700px; /* Wider modal */ max-height: 90vh; position: relative; animation: fadeInModalV2 0.3s ease-out; box-shadow: 0 10px 25px rgba(0,0,0,0.5); display: flex; flex-direction: column; border: 1px solid #4a5568; }
+        .modal-header-v2 { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #4a5568; padding-bottom: 12px; margin-bottom: 18px; }
+        .modal-header-v2 h2 { margin: 0; font-size: 1.6em; color: #28a745; /* SafetyHelp Green */ font-weight: 700;}
+        .modal-body-v2 { overflow-y: auto; flex-grow: 1; line-height: 1.65; font-size: 0.95em; }
+        .modal-footer-v2 { padding-top: 18px; margin-top: 18px; border-top: 1px solid #4a5568; text-align: right; }
+        .modal-footer-v2 button, .modal-footer-v2 a { padding: 10px 20px; border-radius: 0.375rem; cursor: pointer; border: none; font-size: 0.95em; font-weight: 600;}
+        .btn-close-v2 { background-color: #718096; color: white; } .btn-close-v2:hover{ background-color: #4a5568;}
+        .btn-primary-modal-v2 { background-color: #007bff; color: white; } .btn-primary-modal-v2:hover{ background-color: #0056b3;}
+        .close-icon-v2 { font-size: 1.6em; cursor: pointer; color: #a0aec0; } .close-icon-v2:hover{color: #e2e8f0;}
         @keyframes fadeInModalV2 { from { opacity: 0; transform: translateY(-20px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
 
         /* Book Modal Specifics for V2 */
-        .book-modal-cover-v2 { max-width: 120px; float: left; margin-right: 15px; margin-bottom: 10px; border-radius: 6px; }
-        .book-modal-authors-v2 { font-size: 0.85em; color: #9ca3af; font-style: italic; margin-bottom: 10px; clear:both; }
-        .summary-pagination-v2 { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; }
-        .summary-pagination-v2 button { background-color: #0ea5e9; color: white; padding: 7px 10px; font-size: 0.8em;}
-        .summary-pagination-v2 button:disabled { background-color: #4b5563; cursor: not-allowed; }
-        .summary-pagination-v2 .page-info-v2 { font-size: 0.85em; color: #9ca3af; }
+        .book-modal-cover-v2 { max-width: 130px; float: left; margin-right: 18px; margin-bottom: 12px; border-radius: 6px; border: 1px solid #4a5568;}
+        .book-modal-authors-v2 { font-size: 0.9em; color: #a0aec0; font-style: italic; margin-bottom: 12px; clear:both; }
+        .summary-pagination-v2 { display: flex; justify-content: space-between; align-items: center; margin-top: 18px; }
+        .summary-pagination-v2 button { background-color: #007bff; color: white; padding: 8px 12px; font-size: 0.85em;}
+        .summary-pagination-v2 button:disabled { background-color: #718096; cursor: not-allowed; }
+        .summary-pagination-v2 .page-info-v2 { font-size: 0.9em; color: #a0aec0; }
 
         /* Resources Modal Specifics for V2 */
-        .resource-category-v2 h4 { font-size: 1.1em; color: #0ea5e9; margin-bottom: 8px; border-bottom: 1px solid #374151; padding-bottom: 5px; }
-        .resource-list-v2 li a { font-size: 0.9em; color: #9ca3af; display: flex; align-items: center; padding: 5px 0; }
-        .resource-list-v2 li a:hover { color: #0ea5e9; }
-        .resource-list-v2 li a i { margin-right: 8px; color: #6b7280; }
+        .resource-category-v2 h4 { font-size: 1.2em; color: #28a745; margin-bottom: 10px; border-bottom: 1px solid #4a5568; padding-bottom: 6px; }
+        .resource-list-v2 li a { font-size: 0.95em; color: #cbd5e0; display: flex; align-items: center; padding: 6px 0; }
+        .resource-list-v2 li a:hover { color: #28a745; }
+        .resource-list-v2 li a i { margin-right: 10px; color: #718096; }
+
+        /* Quiz Modal Specifics */
+        .quiz-selection-button { background-color: #007bff; color: white; padding: 10px 15px; margin: 10px; border-radius: 0.375rem; font-weight: 600; }
+        .quiz-selection-button:hover { background-color: #0056b3; }
+        .quiz-question-v2 { margin-bottom: 15px; }
+        .quiz-question-v2 p { font-size: 1.1em; margin-bottom: 10px; color: #e2e8f0; }
+        .quiz-options-v2 label { display: block; background-color: #4a5568; color: #e2e8f0; padding: 10px; margin-bottom: 8px; border-radius: 0.375rem; cursor: pointer; transition: background-color 0.2s; }
+        .quiz-options-v2 label:hover { background-color: #718096; }
+        .quiz-options-v2 input[type="radio"] { margin-right: 10px; }
+        .quiz-results-v2 p { margin-bottom: 8px; font-size: 1.05em;}
     </style>
 </head>
 <body>
@@ -209,7 +223,7 @@
     </video>
 
     <header class="header-v2">
-        <div class="logo-icon"><i class="fas fa-hard-hat"></i></div>
+        <img src="./assets/images/logo.png" alt="SafetyHelp Logo" class="safetyhelp-logo mx-auto">
         <h1 class="animated-text" id="animatedHeadlineV2">SafetyHelp is Coming!</h1>
     </header>
 
@@ -221,7 +235,7 @@
             <div class="grid-item-v2" onclick="openFeatureModalV2()">
                 <div class="item-icon"><i class="fas fa-cogs"></i></div>
                 <h3>Our Innovations</h3>
-                <p>Discover AI-powered compliance, interactive training, and more.</p>
+                <p>AI Compliance, Training, Community Tools & More.</p>
                 <button>Learn More</button>
             </div>
 
@@ -230,11 +244,11 @@
                 <h3>Inspired by Expertise</h3>
                 <div class="books-container-v2">
                     <div class="text-center" onclick="openBookModalV2('book-career-v2')">
-                        <img src="./assets/photos/SF_Career.jpg" alt="OHS Career" class="book-cover-compact-v2" onerror="this.onerror=null;this.src='https://placehold.co/60x90/374151/e5e7eb?text=SFCR';">
+                        <img src="./assets/photos/SF_Career.jpg" alt="OHS Career" class="book-cover-compact-v2" onerror="this.onerror=null;this.src='https://placehold.co/70x105/4a5568/e2e8f0?text=SFCR';">
                         <p class="book-title-compact">OHS Career</p>
                     </div>
                     <div class="text-center" onclick="openBookModalV2('book-plans-v2')">
-                        <img src="./assets/photos/SF_Plans.jpg" alt="OHS Plans" class="book-cover-compact-v2" onerror="this.onerror=null;this.src='https://placehold.co/60x90/374151/e5e7eb?text=SFPL';">
+                        <img src="./assets/photos/SF_Plans.jpg" alt="OHS Plans" class="book-cover-compact-v2" onerror="this.onerror=null;this.src='https://placehold.co/70x105/4a5568/e2e8f0?text=SFPL';">
                         <p class="book-title-compact">OHS Plans</p>
                     </div>
                 </div>
@@ -243,36 +257,43 @@
             <div class="grid-item-v2" onclick="openResourcesModalV2()">
                 <div class="item-icon"><i class="fas fa-folder-open"></i></div>
                 <h3>Valuable Resources</h3>
-                <p>Access key legislation, professional bodies, and free training links.</p>
+                <p>Key Legislation, Bodies & Free Training Links.</p>
                 <button>Explore Resources</button>
             </div>
             
-            <div class="grid-item-v2">
-                <div class="item-icon"><i class="fas fa-envelope-open-text"></i></div>
-                <h3>Stay Updated</h3>
-                <p>The future is almost here! Contact us for early insights.</p>
-                <button onclick="window.location.href='mailto:salatiso@salatiso.com'">Email Us</button>
+            <div class="grid-item-v2" onclick="openQuizSelectionModalV2()">
+                <div class="item-icon"><i class="fas fa-question-circle"></i></div>
+                <h3>Test Your Knowledge</h3>
+                <p>Take our OHS & Construction Compliance Quizzes.</p>
+                <button>Start Quiz</button>
             </div>
         </div>
     </main>
 
     <footer class="footer-v2">
         <p>Salatiso Mdeni, Founder | &copy; <span id="currentYearV2"></span> SafetyHelp. All rights reserved.</p>
+        <p class="mt-1">Reach out: <a href="mailto:salatiso@salatiso.com">salatiso@salatiso.com</a></p>
     </footer>
 
     <div id="feature-modal-v2" class="modal-v2">
         <div class="modal-content-v2">
             <div class="modal-header-v2">
-                <h2><i class="fas fa-cogs mr-2"></i>Our Innovations</h2>
+                <h2><i class="fas fa-cogs mr-2"></i>Our Innovations & Upcoming Services</h2>
                 <span class="close-icon-v2" onclick="closeModalV2('feature-modal-v2')">&times;</span>
             </div>
             <div class="modal-body-v2">
-                <h3 class="text-xl font-semibold text-sky-400 mb-2">AI-Powered Compliance</h3>
-                <p class="mb-4 text-gray-300">Navigate complex OHS regulations with intelligent assistance and automated document generation. SafetyHelp will simplify your legal obligations.</p>
-                <h3 class="text-xl font-semibold text-sky-400 mb-2">Interactive Training Modules</h3>
-                <p class="mb-4 text-gray-300">Engaging and practical courses to empower your team with essential safety knowledge, accessible anytime, anywhere.</p>
-                <h3 class="text-xl font-semibold text-sky-400 mb-2">Community Safety Tools</h3>
-                <p class="text-gray-300">Report hazards in your community, access safety checklists for various establishments, and contribute to a safer environment for everyone in South Africa.</p>
+                <h4 class="text-lg font-semibold text-green-400 mb-1">Compliance Management</h4>
+                <p class="mb-3 text-gray-300">Simplify OHS compliance with tools for audits, policy generation, and legal register management. Stay ahead effortlessly.</p>
+                <h4 class="text-lg font-semibold text-green-400 mb-1">Risk Assessment Tools</h4>
+                <p class="mb-3 text-gray-300">Identify, analyze, and mitigate workplace risks with our intuitive assessment wizards and templates. Proactive safety made easy.</p>
+                <h4 class="text-lg font-semibold text-green-400 mb-1">Interactive Training Modules</h4>
+                <p class="mb-3 text-gray-300">Engaging courses covering general OHS, construction safety, and specialized topics. Empower your team with knowledge.</p>
+                <h4 class="text-lg font-semibold text-green-400 mb-1">Incident Reporting & Management</h4>
+                <p class="mb-3 text-gray-300">Streamlined reporting, investigation, and analysis of incidents to prevent recurrence and improve safety culture.</p>
+                <h4 class="text-lg font-semibold text-green-400 mb-1">OHS Consulting Access</h4>
+                <p class="mb-3 text-gray-300">Connect with expert OHS professionals for tailored advice and support for your specific industry needs.</p>
+                <h4 class="text-lg font-semibold text-green-400 mb-1">Community Safety Tools</h4>
+                <p class="text-gray-300">Report hazards, access safety checklists for various establishments, and contribute to a safer environment for everyone.</p>
             </div>
             <div class="modal-footer-v2">
                 <button class="btn-close-v2" onclick="closeModalV2('feature-modal-v2')">Close</button>
@@ -341,38 +362,65 @@
         </div>
     </div>
 
+    <div id="quiz-selection-modal-v2" class="modal-v2">
+        <div class="modal-content-v2">
+            <div class="modal-header-v2">
+                <h2><i class="fas fa-question-circle mr-2"></i>Select a Quiz</h2>
+                <span class="close-icon-v2" onclick="closeModalV2('quiz-selection-modal-v2')">&times;</span>
+            </div>
+            <div class="modal-body-v2 text-center">
+                <button class="quiz-selection-button" onclick="startQuizV2('general')">General OHS Quiz</button>
+                <button class="quiz-selection-button" onclick="startQuizV2('construction')">Construction Compliance Quiz</button>
+            </div>
+            <div class="modal-footer-v2">
+                <button class="btn-close-v2" onclick="closeModalV2('quiz-selection-modal-v2')">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-quiz-modal-v2" class="modal-v2">
+        <div class="modal-content-v2">
+            <div class="modal-header-v2">
+                <h2 id="quiz-title-v2">OHS Quiz</h2>
+                <span class="close-icon-v2" onclick="closeModalV2('main-quiz-modal-v2'); clearQuizV2();">&times;</span>
+            </div>
+            <div class="modal-body-v2" id="quiz-body-v2">
+                </div>
+            <div class="modal-footer-v2">
+                <button id="quiz-next-btn-v2" class="btn-primary-modal-v2">Next</button>
+                <button id="quiz-close-btn-v2" class="btn-close-v2" style="display:none;" onclick="closeModalV2('main-quiz-modal-v2'); clearQuizV2();">Close</button>
+            </div>
+        </div>
+    </div>
+
+
     <script>
-        // Animated Headline
+        // Animated Headline (remains same)
         const headlineTextV2 = "SafetyHelp is Coming!";
         const animatedHeadlineV2 = document.getElementById('animatedHeadlineV2');
         if(animatedHeadlineV2) {
             headlineTextV2.split('').forEach((letter, index) => {
                 const span = document.createElement('span');
-                span.textContent = letter === ' ' ? '\u00A0' : letter;
+                span.textContent = letter === ' ' ? '\u00A0' : letter; // Handle spaces for animation
                 span.style.animationDelay = `${index * 0.07}s`;
                 animatedHeadlineV2.appendChild(span);
             });
         }
 
-        // Countdown Timer
+        // Countdown Timer (remains same)
         const launchDateV2 = new Date("June 1, 2025 00:00:00").getTime();
         const countdownElementV2 = document.getElementById('countdownV2');
-
         function updateCountdownV2() {
             const now = new Date().getTime();
             const distance = launchDateV2 - now;
-
             if (distance < 0) {
                 if(countdownElementV2) countdownElementV2.innerHTML = "<p class='text-xl font-bold text-green-400 py-2'>We're Live!</p>";
-                clearInterval(countdownIntervalV2);
-                return;
+                clearInterval(countdownIntervalV2); return;
             }
-
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
             if(countdownElementV2) {
                 countdownElementV2.innerHTML = `
                     <div class="countdown-item-v2"><span>${days}</span><p>Days</p></div>
@@ -388,33 +436,18 @@
         document.getElementById('currentYearV2').textContent = new Date().getFullYear();
 
         // Modal Functions V2
-        function openModalV2(modalId) {
-            const modal = document.getElementById(modalId);
-            if (modal) modal.style.display = 'flex';
-        }
-        function closeModalV2(modalId) {
-            const modal = document.getElementById(modalId);
-            if (modal) modal.style.display = 'none';
-        }
-
+        function openModalV2(modalId) { const modal = document.getElementById(modalId); if (modal) modal.style.display = 'flex'; }
+        function closeModalV2(modalId) { const modal = document.getElementById(modalId); if (modal) modal.style.display = 'none'; }
         function openFeatureModalV2() { openModalV2('feature-modal-v2'); }
         function openResourcesModalV2() { openModalV2('resources-modal-v2'); }
+        function openQuizSelectionModalV2() { openModalV2('quiz-selection-modal-v2'); }
         
-        // Book Data & Modal Logic V2
+        // Book Data & Modal Logic V2 (remains same)
         const bookDataV2 = {
-            'book-career-v2': {
-                title: 'Safety First: Essentials for Your OHS Career Journey', authors: 'By Salatiso Lonwabo Mdeni', cover: './assets/photos/SF_Career.jpg',
-                googlePlayLink: 'https://play.google.com/books/reader?id=vscJEQAAQBAJ&pg=GBS.PA1&hl=en_IE',
-                summaryPages: [ "In an era where safety transcends borders...", "This book draws inspiration...", "OHS is not confined to the walls...", "Here’s what this guide unlocks...", "Whether you’re a fresh school leaver...", "For those seeking an even deeper dive...", "This book is your empowerment tool..." ], currentPage: 0
-            },
-            'book-plans-v2': {
-                title: 'Safety First: The Essentials of OHS Plans', authors: 'By Salatiso Lonwabo Mdeni', cover: './assets/photos/SF_Plans.jpg',
-                googlePlayLink: 'https://play.google.com/books/reader?id=psgJEQAAQBAJ&pg=GBS.PA1&hl=en_IE',
-                summaryPages: [ "In our increasingly interconnected world...", "While we\'ll leverage South Africa\'s strong safety culture...", "This book focuses on building a robust OHS plan...", "This is more than just a compliance guide...", "Are you ready to build a safer, healthier workplace?", "Looking to delve deeper? Other books include...", "This book is your empowerment tool..." ], currentPage: 0
-            }
+            'book-career-v2': { title: 'Safety First: Essentials for Your OHS Career Journey', authors: 'By Salatiso Lonwabo Mdeni', cover: './assets/photos/SF_Career.jpg', googlePlayLink: 'https://play.google.com/books/reader?id=vscJEQAAQBAJ&pg=GBS.PA1&hl=en_IE', summaryPages: [ "In an era where safety transcends borders...", "This book draws inspiration...", "OHS is not confined to the walls...", "Here’s what this guide unlocks...", "Whether you’re a fresh school leaver...", "For those seeking an even deeper dive...", "This book is your empowerment tool..." ], currentPage: 0 },
+            'book-plans-v2': { title: 'Safety First: The Essentials of OHS Plans', authors: 'By Salatiso Lonwabo Mdeni', cover: './assets/photos/SF_Plans.jpg', googlePlayLink: 'https://play.google.com/books/reader?id=psgJEQAAQBAJ&pg=GBS.PA1&hl=en_IE', summaryPages: [ "In our increasingly interconnected world...", "While we\'ll leverage South Africa\'s strong safety culture...", "This book focuses on building a robust OHS plan...", "This is more than just a compliance guide...", "Are you ready to build a safer, healthier workplace?", "Looking to delve deeper? Other books include...", "This book is your empowerment tool..." ], currentPage: 0 }
         };
         let currentBookIdV2 = null;
-
         function openBookModalV2(bookId) {
             currentBookIdV2 = bookId; const book = bookDataV2[bookId]; if (!book) return;
             book.currentPage = 0; 
@@ -422,13 +455,104 @@
             document.getElementById('book-modal-gp-link-v2').href = book.googlePlayLink;
             renderBookSummaryPageV2(); openModalV2('book-modal-v2');
         }
-
         function renderBookSummaryPageV2() {
             const book = bookDataV2[currentBookIdV2]; const modalBody = document.getElementById('book-modal-body-v2');
-            let summaryHtml = `<img src="${book.cover}" alt="${book.title}" class="book-modal-cover-v2" onerror="this.onerror=null;this.src='https://placehold.co/120x180/4b5563/9ca3af?text=Cover';"> <p class="book-modal-authors-v2">${book.authors}</p> <div style="clear:both;"><p>${book.summaryPages[book.currentPage]}</p></div> <div class="summary-pagination-v2"> <button id="prev-page-btn-v2" onclick="changeBookPageV2(-1)" ${book.currentPage === 0 ? 'disabled' : ''}>Prev</button> <span class="page-info-v2">Page ${book.currentPage + 1}/${book.summaryPages.length}</span> <button id="next-page-btn-v2" onclick="changeBookPageV2(1)" ${book.currentPage === book.summaryPages.length - 1 ? 'disabled' : ''}>Next</button> </div>`;
+            let summaryHtml = `<img src="${book.cover}" alt="${book.title}" class="book-modal-cover-v2" onerror="this.onerror=null;this.src='https://placehold.co/120x180/4a5568/a0aec0?text=Cover';"> <p class="book-modal-authors-v2">${book.authors}</p> <div style="clear:both;"><p>${book.summaryPages[book.currentPage]}</p></div> <div class="summary-pagination-v2"> <button id="prev-page-btn-v2" onclick="changeBookPageV2(-1)" ${book.currentPage === 0 ? 'disabled' : ''}>Prev</button> <span class="page-info-v2">Page ${book.currentPage + 1}/${book.summaryPages.length}</span> <button id="next-page-btn-v2" onclick="changeBookPageV2(1)" ${book.currentPage === book.summaryPages.length - 1 ? 'disabled' : ''}>Next</button> </div>`;
             modalBody.innerHTML = summaryHtml;
         }
         function changeBookPageV2(direction) { const book = bookDataV2[currentBookIdV2]; book.currentPage += direction; renderBookSummaryPageV2(); }
+
+        // Quiz Logic V2
+        const generalOHSQuestions = [
+            { q: "From which section of the SA Constitution does the right to a safe working environment primarily derive?", o: ["Section 10 (Human Dignity)", "Section 24 (Environment)", "Section 27 (Health care, food, water and social security)", "Section 9 (Equality)"], a: "Section 24 (Environment)" },
+            { q: "The OHS Act gives effect to constitutional rights regarding workplace safety.", o: ["True", "False"], a: "True" },
+            { q: "Municipal by-laws (e.g., fire safety) operate independently of the OHS Act.", o: ["True", "False"], a: "False"},
+            { q: "Who holds the primary duty under the OHS Act to provide and maintain a safe working environment?", o: ["Employees", "The State", "Employers", "Safety Officers"], a: "Employers"},
+            { q: "Which of these is a key OBLIGATION of an employee under the OHS Act?", o: ["To conduct all risk assessments", "To take reasonable care for their own and others' safety", "To provide PPE to colleagues", "To write the company's safety policy"], a: "To take reasonable care for their own and others' safety"},
+            { q: "A 'Section 37(2) agreement' under the OHS Act is primarily concerned with:", o: ["Employee training schedules", "Assigning liability between a client and a mandatory (contractor)", "Reporting of major incidents to the Department of Labour", "The election of safety representatives"], a: "Assigning liability between a client and a mandatory (contractor)"},
+            { q: "Employing undocumented foreign nationals has implications under which primary SA Act regarding workplace injuries?", o: ["Basic Conditions of Employment Act", "Skills Development Act", "Compensation for Occupational Injuries and Diseases Act (COIDA)", "Labour Relations Act"], a: "Compensation for Occupational Injuries and Diseases Act (COIDA)"}
+        ];
+        const constructionQuizQuestions = [
+            { q: "Who is responsible for preparing the Health and Safety Specification for a construction project?", o: ["Principal Contractor", "Client", "Safety Officer", "Engineer"], a: "Client" },
+            { q: "A Principal Contractor must provide the client with a ______ before commencing work.", o: ["Quotation only", "List of employees", "Health and Safety Plan", "Company registration certificate"], a: "Health and Safety Plan" },
+            { q: "A Fall Protection Plan is required for any construction work where there is a risk of falling from an elevated position.", o: ["True", "False"], a: "True" },
+            { q: "Before excavation work deeper than _____, specific precautions like shoring must be taken.", o: ["0.5 meters", "1.0 meter", "1.5 meters", "2.5 meters"], a: "1.5 meters" },
+            { q: "Who is primarily responsible for ensuring that scaffolding is erected, altered, and dismantled by competent persons?", o: ["All workers on site", "The Client", "The Contractor/Employer", "The Safety Representative"], a: "The Contractor/Employer"}
+        ];
+
+        let currentQuizType = '';
+        let questionsForCurrentQuiz = [];
+        let currentQuestionIdxV2 = 0;
+        let scoreV2 = 0;
+
+        const quizTitleElV2 = document.getElementById('quiz-title-v2');
+        const quizBodyElV2 = document.getElementById('quiz-body-v2');
+        const quizNextBtnV2 = document.getElementById('quiz-next-btn-v2');
+        const quizCloseBtnV2 = document.getElementById('quiz-close-btn-v2');
+
+        function startQuizV2(type) {
+            currentQuizType = type;
+            questionsForCurrentQuiz = type === 'general' ? generalOHSQuestions : constructionQuizQuestions;
+            currentQuestionIdxV2 = 0;
+            scoreV2 = 0;
+            
+            quizTitleElV2.textContent = type === 'general' ? 'General OHS Quiz' : 'Construction Compliance Quiz';
+            quizNextBtnV2.textContent = 'Next';
+            quizNextBtnV2.style.display = 'inline-block';
+            quizCloseBtnV2.style.display = 'none';
+            
+            closeModalV2('quiz-selection-modal-v2');
+            displayQuizQuestionV2();
+            openModalV2('main-quiz-modal-v2');
+        }
+
+        function displayQuizQuestionV2() {
+            if (currentQuestionIdxV2 >= questionsForCurrentQuiz.length) {
+                showQuizResultsV2();
+                return;
+            }
+            const qData = questionsForCurrentQuiz[currentQuestionIdxV2];
+            let optionsHtml = qData.o.map(opt => `<label class="quiz-options-v2 block"><input type="radio" name="q_answer" value="${opt}"> ${opt}</label>`).join('');
+            quizBodyElV2.innerHTML = `<div class="quiz-question-v2"><p>${currentQuestionIdxV2 + 1}. ${qData.q}</p><div class="quiz-options-v2">${optionsHtml}</div></div>`;
+            if (currentQuestionIdxV2 === questionsForCurrentQuiz.length - 1) {
+                quizNextBtnV2.textContent = 'Show Results';
+            }
+        }
+
+        quizNextBtnV2.addEventListener('click', () => {
+            const selected = quizBodyElV2.querySelector('input[name="q_answer"]:checked');
+            if (!selected) {
+                alert('Please select an answer.'); // Simple alert, can be styled better
+                return;
+            }
+            if (selected.value === questionsForCurrentQuiz[currentQuestionIdxV2].a) {
+                scoreV2++;
+            }
+            currentQuestionIdxV2++;
+            displayQuizQuestionV2();
+        });
+        
+        function showQuizResultsV2() {
+            quizTitleElV2.textContent = 'Quiz Results';
+            let resultText = `<div class="quiz-results-v2"><p>You scored ${scoreV2} out of ${questionsForCurrentQuiz.length} on the ${currentQuizType === 'general' ? 'General OHS' : 'Construction Compliance'} Quiz.</p>`;
+            const percentage = (scoreV2 / questionsForCurrentQuiz.length) * 100;
+            if (percentage >= 75) {
+                resultText += "<p style='color:#48bb78; font-weight:bold;'>Excellent! You have a strong understanding.</p>";
+            } else if (percentage >= 50) {
+                resultText += "<p style='color:#ecc94b;'>Good effort! Keep learning with SafetyHelp.</p>";
+            } else {
+                resultText += "<p style='color:#f56565;'>There's room for improvement. SafetyHelp is here to guide you!</p>";
+            }
+            resultText += "</div>";
+            quizBodyElV2.innerHTML = resultText;
+            quizNextBtnV2.style.display = 'none';
+            quizCloseBtnV2.style.display = 'inline-block';
+        }
+        function clearQuizV2() { // Reset quiz state when modal is closed from results
+            quizBodyElV2.innerHTML = '';
+            quizNextBtnV2.style.display = 'inline-block';
+            quizCloseBtnV2.style.display = 'none';
+        }
 
     </script>
 </body>
