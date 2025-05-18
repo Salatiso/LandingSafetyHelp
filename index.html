@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SafetyHelp - Unveiling the Future of OHS</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>SafetyHelp - Coming Soon</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
     <style>
         html, body {
-            height: 100vh;
-            overflow: hidden;
+            height: 100vh; /* Full viewport height */
+            overflow: hidden; /* Prevent main page scroll */
             margin: 0;
-            font-family: 'Inter', sans-serif;
-            background-color: #111827; /* Dark background base */
-            color: #e5e7eb; /* Light text */
+            font-family: 'Arial', sans-serif;
+            color: #333; /* Default text color */
         }
         body {
             display: flex;
             flex-direction: column;
-            position: relative;
+            position: relative; /* For video background positioning */
         }
-        #bg-video-v2 {
+
+        #bg-video {
             position: fixed;
             top: 50%;
             left: 50%;
@@ -29,407 +29,790 @@
             min-height: 100%;
             width: auto;
             height: auto;
-            z-index: -100;
+            z-index: -100; /* Place video behind all content */
             transform: translateX(-50%) translateY(-50%);
             background-size: cover;
-            filter: brightness(0.5) contrast(1.1); /* Adjusted for dark theme */
+            filter: brightness(0.7); /* Darken video slightly for text readability */
         }
 
-        .header-v2 {
-            padding: 15px 10px; /* Compacted */
+        header {
             text-align: center;
-            position: relative;
-            z-index: 10;
-            background-color: rgba(17, 24, 39, 0.8); /* Semi-transparent dark */
-            flex-shrink: 0;
-        }
-        .header-v2 .logo-icon {
-             font-size: 2.5rem; /* Adjusted */
-             color: #0ea5e9; /* Sky blue */
-             margin-bottom: 5px;
-        }
-        .header-v2 h1 {
-            font-size: 1.8rem; /* Adjusted */
-            font-weight: 800;
-            color: #fff;
-        }
-        .header-v2 .animated-text span {
-            display: inline-block;
-            opacity: 0;
-            animation: fadeInLetter 0.4s forwards;
-        }
-        @keyframes fadeInLetter { to { opacity: 1; } }
-
-        .main-content-v2 {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center; /* Center the main content block */
-            align-items: center;
-            padding: 10px; /* Reduced padding */
-            overflow: hidden; /* Prevent internal scroll of main */
-            position: relative;
-            z-index: 10;
-        }
-        .content-grid-v2 {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2x2 grid for sections */
-            grid-template-rows: auto auto;
-            gap: 15px; /* Space between grid items */
+            padding: 10px; /* Reduced padding for compactness */
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
             width: 100%;
-            max-width: 900px; /* Max width for the grid */
-            max-height: calc(100vh - 220px); /* Approx height available */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            flex-shrink: 0; /* Prevent header from shrinking */
+            position: relative; /* Ensure header is above the video */
+            z-index: 10;
         }
-        .grid-item-v2 {
-            background-color: rgba(31, 41, 55, 0.85); /* Darker semi-transparent cards */
-            padding: 15px; /* Compact padding */
-            border-radius: 0.75rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        .logo {
+            font-size: 1.8em; /* Adjusted for compactness */
+            font-weight: bold;
+            color: #007bff;
+        }
+        .logo .fa-hard-hat {
+            margin-right: 8px;
+            color: #28a745;
+        }
+        .tagline {
+            font-size: 0.9em; /* Adjusted for compactness */
+            color: #28a745;
+            margin-top: 2px; /* Reduced margin */
+        }
+        .countdown {
+            font-size: 1.1em; /* Adjusted for compactness */
+            color: #dc3545;
+            animation: pulse 1.5s infinite;
+            margin-top: 5px; /* Reduced margin */
+            font-weight: bold;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); } /* Subtle pulse */
+            100% { transform: scale(1); }
+        }
+
+        main {
+            flex-grow: 1; /* Allow main to take available vertical space */
+            width: 95%; /* Use more width */
+            max-width: 1200px; /* Allow wider layout for 4 sections */
+            margin: 0 auto; /* Center main content */
+            display: flex; /* Use flexbox for horizontal layout of sections */
+            justify-content: space-around; /* Distribute sections evenly */
+            align-items: stretch; /* Make sections of equal height */
+            overflow: hidden; /* Prevent internal scroll of main area */
+            padding: 10px 0; /* Reduced vertical padding */
+            gap: 10px; /* Space between content sections */
+            position: relative; /* Ensure main content is above the video */
+            z-index: 10;
+        }
+        .content-section {
+            padding: 8px; /* Reduced padding within sections */
+            background-color: rgba(255, 255, 255, 0.92); /* More opaque for readability over video */
+            border-radius: 10px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column; /* Stack title and content vertically */
+            flex-basis: 0; /* Allow flex-grow to distribute space */
+            flex-grow: 1; /* Each section takes equal width */
+            min-width: 200px; /* Minimum width before wrapping (if flex-wrap was used) */
+            max-height: calc(100vh - 150px); /* Approximate max height considering header/footer and some padding */
+        }
+         .content-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.2em; /* Adjusted for compactness */
+            color: #007bff;
+            margin-bottom: 8px; /* Reduced margin */
+            font-weight: bold;
+            flex-shrink: 0; /* Prevent title from shrinking */
+        }
+
+        /* Services & Books Carousel Styling */
+        .services-carousel, .books-carousel {
+            width: 100%; /* Ensure carousel takes full width of its section */
+            margin: 0 auto;
+            flex-grow: 1; /* Allow carousel to take available vertical space in its section */
+            overflow: hidden; /* Important for slick carousel */
+        }
+        .service, .book-item-compact {
+            text-align: center;
+            padding: 10px;
+            background-color: #fff; /* Solid background for items */
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            margin: 5px; /* Margin for between-item spacing in carousel */
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid #e8e8e8;
+        }
+        .service:hover, .book-item-compact:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.08);
+        }
+        .service i {
+            font-size: 1.8em; /* Adjusted icon size */
+            color: #007bff;
+            margin-bottom: 5px;
+        }
+        .service h2 {
+            font-size: 1em; /* Adjusted title size */
+            margin: 5px 0 3px 0;
+            color: #333;
+        }
+        .service p {
+            font-size: 0.8em; /* Adjusted text size */
+            margin: 0;
+            color: #555;
+        }
+        .book-item-compact img {
+            width: 80px; /* Small book cover for carousel */
+            height: 120px; /* Fixed height for consistency */
+            object-fit: cover; /* Ensure image covers the area without distortion */
+            border-radius: 4px;
+            margin: 0 auto 5px auto; /* Center image and add bottom margin */
+        }
+        .book-item-compact h3 {
+            font-size: 0.85em; /* Compact title for book */
+            color: #0056b3;
+            margin: 0;
+            white-space: nowrap; /* Prevent title from wrapping */
+            overflow: hidden; /* Hide overflow */
+            text-overflow: ellipsis; /* Show ellipsis for long titles */
+        }
+
+        /* Resources Section Styling */
+        .resources-content {
+            overflow-y: auto; /* Enable vertical scroll ONLY within this div */
+            flex-grow: 1; /* Allow this div to take available space in its section */
+            padding-right: 5px; /* Space for scrollbar to avoid content overlap */
+        }
+        .resource-category {
+            margin-bottom: 10px;
+        }
+        .resource-category h4 {
+            font-size: 1em; /* Adjusted category title size */
+            color: #28a745;
+            margin-bottom: 5px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 3px;
+        }
+        .resource-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+        .resource-list li {
+            margin-bottom: 4px;
+        }
+        .resource-list li a {
+            font-size: 0.85em; /* Adjusted link text size */
+            color: #337ab7;
+            text-decoration: none;
+            display: flex; /* Align icon and text */
+            align-items: center;
+        }
+        .resource-list li a:hover {
+            text-decoration: underline;
+            color: #23527c;
+        }
+        .resource-list li a i {
+            margin-right: 6px; /* Space between icon and text */
+            color: #555; /* Icon color */
+        }
+
+        /* Quiz Section Styling */
+        .quiz-section { /* This section will be a flex container */
             display: flex;
             flex-direction: column;
-            align-items: center;
+            justify-content: center; /* Center button vertically */
+            align-items: center; /* Center button horizontally */
+        }
+        #start-quiz-btn { /* Renamed from start-quiz for clarity */
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 8px 15px; /* Adjusted button padding */
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-size: 0.9em; /* Adjusted button text size */
+            font-weight: bold;
+        }
+        #start-quiz-btn:hover {
+            background-color: #218838;
+            transform: scale(1.03); /* Subtle hover scale */
+        }
+
+        footer {
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 8px; /* Reduced padding */
+            font-size: 0.75em; /* Adjusted for compactness */
+            background-color: rgba(51, 51, 51, 0.9); /* Semi-transparent dark background */
+            color: #f0f4f8;
+            width: 100%;
+            flex-shrink: 0; /* Prevent footer from shrinking */
+            position: relative; /* Ensure footer is above the video */
+            z-index: 10;
         }
-        .grid-item-v2:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px rgba(14, 165, 233, 0.2); /* Sky blue glow */
+        footer a {
+            color: #00aaff; /* Brighter link for dark background */
+            text-decoration: none;
         }
-        .grid-item-v2 .item-icon {
-            font-size: 2rem; /* Adjusted icon size */
-            color: #0ea5e9; /* Sky blue */
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Slick Carousel Arrow/Dot Adjustments for Compactness */
+        .slick-dots {
+            bottom: -10px; /* Move dots closer */
+        }
+        .slick-dots li button:before {
+            font-size: 7px; /* Smaller dots */
+            color: #007bff;
+        }
+        .slick-dots li.slick-active button:before {
+            color: #28a745;
+        }
+        .slick-prev, .slick-next {
+            height: 25px; /* Smaller arrows */
+            width: 25px;
+        }
+        .slick-prev:before, .slick-next:before {
+            font-size: 18px; /* Smaller arrow icons */
+            color: #007bff;
+        }
+        
+        /* Modal Styles (General) */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000; /* High z-index to be on top */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.75); /* Darker overlay for better focus */
+            justify-content: center;
+            align-items: center;
+            padding: 15px; /* Padding for smaller screens */
+            box-sizing: border-box;
+        }
+        .modal-content {
+            background-color: #fff;
+            padding: 15px; /* Reduced padding */
+            border-radius: 10px;
+            width: 90%;
+            max-width: 550px; /* Slightly reduced max-width */
+            max-height: 85vh; /* Limit modal height */
+            position: relative;
+            animation: fadeIn 0.3s ease-out;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column; /* Stack header, body, footer */
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px; /* Reduced padding */
+            margin-bottom: 10px; /* Reduced margin */
+        }
+        .modal-header h2 {
+            margin: 0;
+            font-size: 1.3em; /* Adjusted title size */
+            color: #007bff;
+        }
+        .modal-body {
+            overflow-y: auto; /* Scroll within modal body if content overflows */
+            flex-grow: 1; /* Allow body to take available space */
+            line-height: 1.5; /* Improved readability */
+            font-size: 0.9em; /* Adjusted text size */
+        }
+        .modal-footer {
+            padding-top: 10px; /* Reduced padding */
+            margin-top: 10px; /* Reduced margin */
+            border-top: 1px solid #eee;
+            text-align: right; /* Align buttons to the right */
+        }
+        .modal-footer button, .modal-footer a { /* Style for buttons and links in footer */
+            padding: 7px 12px; /* Adjusted padding */
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+            font-size: 0.85em; /* Adjusted text size */
+        }
+        .modal-footer .btn-close {
+            background-color: #6c757d; /* Standard close button color */
+            color: white;
+            margin-left: 8px; /* Space if multiple buttons */
+        }
+        .modal-footer .btn-primary-modal { /* For main action buttons like "Next" or "View" */
+            background-color: #28a745; /* Consistent accent color */
+            color: white;
+        }
+        .close-btn-icon { /* For the 'X' icon in modal header */
+            font-size: 1.5em; /* Adjusted icon size */
+            cursor: pointer;
+            color: #777;
+            transition: color 0.3s ease;
+        }
+        .close-btn-icon:hover {
+            color: #333;
+        }
+
+        /* Book Modal Specifics */
+        .book-modal-cover {
+            max-width: 120px; /* Smaller cover in modal */
+            height: auto;
+            border-radius: 8px;
+            float: left; /* Allow text to wrap around */
+            margin-right: 12px;
             margin-bottom: 8px;
         }
-        .grid-item-v2 h3 {
-            font-size: 1.1rem; /* Adjusted title size */
-            font-weight: 700;
-            margin-bottom: 5px;
-            color: #e5e7eb;
+        .book-modal-authors {
+            font-size: 0.85em;
+            color: #555;
+            font-style: italic;
+            margin-bottom: 8px;
+            clear:both; /* If image is floated */
         }
-        .grid-item-v2 p, .grid-item-v2 button, .grid-item-v2 .book-title-compact {
-            font-size: 0.8rem; /* Adjusted text size */
-            color: #9ca3af; /* Lighter gray for descriptions */
+        .summary-pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 12px;
         }
-        .grid-item-v2 button {
-            margin-top: auto; /* Push button to bottom if space allows */
-            padding: 6px 12px;
-            background-color: #0ea5e9;
+        .summary-pagination button {
+            background-color: #007bff;
             color: white;
-            border-radius: 0.375rem;
-            transition: background-color 0.2s ease;
+            padding: 7px 10px; /* Smaller pagination buttons */
         }
-        .grid-item-v2 button:hover {
-            background-color: #0284c7;
+        .summary-pagination button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
         }
-        .book-cover-compact-v2 {
-            width: 60px; /* Small book cover */
-            height: 90px;
-            object-fit: cover;
-            border-radius: 4px;
-            margin-bottom: 5px;
-            cursor: pointer;
-        }
-        .books-container-v2 {
-            display: flex;
-            justify-content: space-around;
-            width: 100%;
+        .summary-pagination .page-info {
+            font-size: 0.85em;
+            color: #555;
         }
 
+        /* Quiz options styling */
+        .options-container { margin-top: 10px; }
+        .quiz-option { display: block; margin-bottom: 8px; font-size: 0.9em; cursor: pointer; padding: 6px; border-radius: 4px; border: 1px solid #eee; }
+        .quiz-option:hover { background-color: #f9f9f9; }
+        .quiz-option input[type='radio'] { margin-right: 6px; }
+        .error-message { color: red; font-size: 0.85em; margin-top: 8px; }
 
-        .countdown-container-v2 {
-            display: flex;
-            justify-content: center;
-            gap: 10px; /* Smaller gap */
-            margin-top: 10px; /* Space from headline */
-            margin-bottom: 15px; /* Space before content grid */
+        @keyframes fadeIn { /* Simple fade-in for modals */
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
         }
-        .countdown-item-v2 {
-            background-color: rgba(14, 165, 233, 0.2); /* Sky blue tint */
-            padding: 8px 12px; /* Compact padding */
-            border-radius: 0.375rem;
-            text-align: center;
-        }
-        .countdown-item-v2 span {
-            font-size: 1.5rem; /* Adjusted number size */
-            font-weight: 700;
-            line-height: 1;
-            color: #e5e7eb;
-        }
-        .countdown-item-v2 p {
-            font-size: 0.65rem; /* Adjusted label size */
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: #9ca3af;
-        }
-
-        .footer-v2 {
-            padding: 10px; /* Compacted */
-            text-align: center;
-            background-color: rgba(17, 24, 39, 0.9); /* Darker semi-transparent */
-            color: #9ca3af; /* Lighter gray */
-            font-size: 0.75rem; /* Adjusted */
-            flex-shrink: 0;
-            position: relative;
-            z-index: 10;
-        }
-        .footer-v2 a { color: #0ea5e9; }
-
-        /* Modal Styles */
-        .modal-v2 { display: none; position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); justify-content: center; align-items: center; padding: 15px; box-sizing: border-box;}
-        .modal-content-v2 { background-color: #1f2937; color: #e5e7eb; padding: 20px; border-radius: 0.75rem; width: 90%; max-width: 600px; max-height: 85vh; position: relative; animation: fadeInModalV2 0.3s ease-out; box-shadow: 0 10px 25px rgba(0,0,0,0.5); display: flex; flex-direction: column; }
-        .modal-header-v2 { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #374151; padding-bottom: 10px; margin-bottom: 15px; }
-        .modal-header-v2 h2 { margin: 0; font-size: 1.4em; color: #0ea5e9; }
-        .modal-body-v2 { overflow-y: auto; flex-grow: 1; line-height: 1.6; font-size: 0.9em; }
-        .modal-footer-v2 { padding-top: 15px; margin-top: 15px; border-top: 1px solid #374151; text-align: right; }
-        .modal-footer-v2 button, .modal-footer-v2 a { padding: 8px 15px; border-radius: 0.375rem; cursor: pointer; border: none; font-size: 0.9em; }
-        .btn-close-v2 { background-color: #4b5563; color: white; } .btn-close-v2:hover{ background-color: #374151;}
-        .btn-primary-modal-v2 { background-color: #0ea5e9; color: white; } .btn-primary-modal-v2:hover{ background-color: #0284c7;}
-        .close-icon-v2 { font-size: 1.5em; cursor: pointer; color: #9ca3af; } .close-icon-v2:hover{color: #e5e7eb;}
-        @keyframes fadeInModalV2 { from { opacity: 0; transform: translateY(-20px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
-
-        /* Book Modal Specifics for V2 */
-        .book-modal-cover-v2 { max-width: 120px; float: left; margin-right: 15px; margin-bottom: 10px; border-radius: 6px; }
-        .book-modal-authors-v2 { font-size: 0.85em; color: #9ca3af; font-style: italic; margin-bottom: 10px; clear:both; }
-        .summary-pagination-v2 { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; }
-        .summary-pagination-v2 button { background-color: #0ea5e9; color: white; padding: 7px 10px; font-size: 0.8em;}
-        .summary-pagination-v2 button:disabled { background-color: #4b5563; cursor: not-allowed; }
-        .summary-pagination-v2 .page-info-v2 { font-size: 0.85em; color: #9ca3af; }
-
-        /* Resources Modal Specifics for V2 */
-        .resource-category-v2 h4 { font-size: 1.1em; color: #0ea5e9; margin-bottom: 8px; border-bottom: 1px solid #374151; padding-bottom: 5px; }
-        .resource-list-v2 li a { font-size: 0.9em; color: #9ca3af; display: flex; align-items: center; padding: 5px 0; }
-        .resource-list-v2 li a:hover { color: #0ea5e9; }
-        .resource-list-v2 li a i { margin-right: 8px; color: #6b7280; }
     </style>
 </head>
 <body>
-    <video autoplay muted loop id="bg-video-v2">
+    <video autoplay muted loop id="bg-video">
         <source src="./assets/videos/background.mp4" type="video/mp4">
         Your browser does not support HTML5 video.
     </video>
 
-    <header class="header-v2">
-        <div class="logo-icon"><i class="fas fa-hard-hat"></i></div>
-        <h1 class="animated-text" id="animatedHeadlineV2">SafetyHelp is Coming!</h1>
+    <header>
+        <div class="logo"><i class="fas fa-hard-hat"></i>SafetyHelp</div>
+        <div class="tagline">Making OHS compliance accessible <i class="fas fa-shield-alt"></i></div>
+        <div class="countdown" id="countdown"></div>
     </header>
 
-    <div class="countdown-container-v2" id="countdownV2">
-        </div>
-
-    <main class="main-content-v2">
-        <div class="content-grid-v2">
-            <div class="grid-item-v2" onclick="openFeatureModalV2()">
-                <div class="item-icon"><i class="fas fa-cogs"></i></div>
-                <h3>Our Innovations</h3>
-                <p>Discover AI-powered compliance, interactive training, and more.</p>
-                <button>Learn More</button>
+    <main>
+        <section class="content-section services-section">
+            <h2 class="section-title"><i class="fas fa-concierge-bell"></i> Services</h2>
+            <div class="carousel services-carousel">
+                <div class="service" onclick="openServiceModal('compliance')"><i class="fas fa-clipboard-check"></i><h2>Compliance</h2><p>Simplify OHS</p></div>
+                <div class="service" onclick="openServiceModal('risk')"><i class="fas fa-chart-bar"></i><h2>Risk Assessment</h2><p>Spot & fix risks</p></div>
+                <div class="service" onclick="openServiceModal('training')"><i class="fas fa-chalkboard-teacher"></i><h2>Training</h2><p>Upskill your team</p></div>
+                <div class="service" onclick="openServiceModal('incident')"><i class="fas fa-file-medical-alt"></i><h2>Incidents</h2><p>Track & improve</p></div>
+                <div class="service" onclick="openServiceModal('consulting')"><i class="fas fa-hands-helping"></i><h2>Consulting</h2><p>Expert guidance</p></div>
             </div>
+        </section>
 
-            <div class="grid-item-v2">
-                <div class="item-icon"><i class="fas fa-book-reader"></i></div>
-                <h3>Inspired by Expertise</h3>
-                <div class="books-container-v2">
-                    <div class="text-center" onclick="openBookModalV2('book-career-v2')">
-                        <img src="./assets/photos/SF_Career.jpg" alt="OHS Career" class="book-cover-compact-v2" onerror="this.onerror=null;this.src='https://placehold.co/60x90/374151/e5e7eb?text=SFCR';">
-                        <p class="book-title-compact">OHS Career</p>
-                    </div>
-                    <div class="text-center" onclick="openBookModalV2('book-plans-v2')">
-                        <img src="./assets/photos/SF_Plans.jpg" alt="OHS Plans" class="book-cover-compact-v2" onerror="this.onerror=null;this.src='https://placehold.co/60x90/374151/e5e7eb?text=SFPL';">
-                        <p class="book-title-compact">OHS Plans</p>
-                    </div>
+        <section class="content-section inspired-books-section">
+            <h2 class="section-title"><i class="fas fa-book-open"></i> Our Inspiration</h2>
+            <div class="carousel books-carousel">
+                <div class="book-item-compact" onclick="openBookModal('book-career')">
+                    <img src="./assets/photos/SF_Career.jpg" alt="Safety First: OHS Career" onerror="this.onerror=null;this.src='https://placehold.co/80x120/007bff/ffffff?text=SFCR';">
+                    <h3>OHS Career</h3>
                 </div>
-            </div>
+                <div class="book-item-compact" onclick="openBookModal('book-plans')">
+                    <img src="./assets/photos/SF_Plans.jpg" alt="Safety First: OHS Plans" onerror="this.onerror=null;this.src='https://placehold.co/80x120/28a745/ffffff?text=SFPL';">
+                    <h3>OHS Plans</h3>
+                </div>
+                </div>
+        </section>
 
-            <div class="grid-item-v2" onclick="openResourcesModalV2()">
-                <div class="item-icon"><i class="fas fa-folder-open"></i></div>
-                <h3>Valuable Resources</h3>
-                <p>Access key legislation, professional bodies, and free training links.</p>
-                <button>Explore Resources</button>
-            </div>
-            
-            <div class="grid-item-v2">
-                <div class="item-icon"><i class="fas fa-envelope-open-text"></i></div>
-                <h3>Stay Updated</h3>
-                <p>The future is almost here! Contact us for early insights.</p>
-                <button onclick="window.location.href='mailto:salatiso@salatiso.com'">Email Us</button>
-            </div>
-        </div>
-    </main>
-
-    <footer class="footer-v2">
-        <p>Salatiso Mdeni, Founder | &copy; <span id="currentYearV2"></span> SafetyHelp. All rights reserved.</p>
-    </footer>
-
-    <div id="feature-modal-v2" class="modal-v2">
-        <div class="modal-content-v2">
-            <div class="modal-header-v2">
-                <h2><i class="fas fa-cogs mr-2"></i>Our Innovations</h2>
-                <span class="close-icon-v2" onclick="closeModalV2('feature-modal-v2')">&times;</span>
-            </div>
-            <div class="modal-body-v2">
-                <h3 class="text-xl font-semibold text-sky-400 mb-2">AI-Powered Compliance</h3>
-                <p class="mb-4 text-gray-300">Navigate complex OHS regulations with intelligent assistance and automated document generation. SafetyHelp will simplify your legal obligations.</p>
-                <h3 class="text-xl font-semibold text-sky-400 mb-2">Interactive Training Modules</h3>
-                <p class="mb-4 text-gray-300">Engaging and practical courses to empower your team with essential safety knowledge, accessible anytime, anywhere.</p>
-                <h3 class="text-xl font-semibold text-sky-400 mb-2">Community Safety Tools</h3>
-                <p class="text-gray-300">Report hazards in your community, access safety checklists for various establishments, and contribute to a safer environment for everyone in South Africa.</p>
-            </div>
-            <div class="modal-footer-v2">
-                <button class="btn-close-v2" onclick="closeModalV2('feature-modal-v2')">Close</button>
-            </div>
-        </div>
-    </div>
-
-    <div id="book-modal-v2" class="modal-v2">
-        <div class="modal-content-v2">
-            <div class="modal-header-v2">
-                <h2 id="book-modal-title-v2">Book Details</h2>
-                <span class="close-icon-v2" onclick="closeModalV2('book-modal-v2')">&times;</span>
-            </div>
-            <div class="modal-body-v2" id="book-modal-body-v2"></div>
-            <div class="modal-footer-v2">
-                <a id="book-modal-gp-link-v2" href="#" target="_blank" class="btn-primary-modal-v2" style="margin-right:auto;">View on Google Play</a>
-                <button class="btn-close-v2" onclick="closeModalV2('book-modal-v2')">Close</button>
-            </div>
-        </div>
-    </div>
-
-    <div id="resources-modal-v2" class="modal-v2">
-        <div class="modal-content-v2">
-            <div class="modal-header-v2">
-                <h2><i class="fas fa-folder-open mr-2"></i>OHS Resources</h2>
-                <span class="close-icon-v2" onclick="closeModalV2('resources-modal-v2')">&times;</span>
-            </div>
-            <div class="modal-body-v2">
-                <div class="resource-category-v2">
+        <section class="content-section resources-section">
+            <h2 class="section-title"><i class="fas fa-folder-open"></i> OHS Resources</h2>
+            <div class="resources-content">
+                <div class="resource-category">
                     <h4><i class="fas fa-balance-scale"></i> Key Legislation</h4>
-                    <ul class="resource-list-v2">
+                    <ul class="resource-list">
                         <li><a href="https://www.gov.za/documents/constitution-republic-south-africa-1996" target="_blank"><i class="fas fa-landmark"></i> SA Constitution</a></li>
                         <li><a href="https://www.gov.za/documents/occupational-health-and-safety-act" target="_blank"><i class="fas fa-hard-hat"></i> OHS Act 85 of 1993</a></li>
                         <li><a href="https://www.gov.za/documents/compensation-occupational-injuries-and-diseases-act" target="_blank"><i class="fas fa-first-aid"></i> COID Act</a></li>
-                        <li><a href="https://www.gov.za/documents/mine-health-and-safety-act" target="_blank"><i class="fas fa-tools"></i> Mine Health & Safety Act</a></li>
+                         <li><a href="https://www.gov.za/documents/mine-health-and-safety-act" target="_blank"><i class="fas fa-tools"></i> Mine Health & Safety Act</a></li>
                         <li><a href="https://www.gov.za/documents/national-building-regulations-and-building-standards-act" target="_blank"><i class="fas fa-building"></i> National Building Regulations</a></li>
                     </ul>
                 </div>
-                <div class="resource-category-v2">
+                <div class="resource-category">
                     <h4><i class="fas fa-users-cog"></i> Professional Bodies</h4>
-                    <ul class="resource-list-v2">
+                    <ul class="resource-list">
                         <li><a href="https://www.saiosh.co.za/" target="_blank"><i class="fas fa-id-badge"></i> SAIOSH</a></li>
                         <li><a href="https://www.saioh.co.za/" target="_blank"><i class="fas fa-microscope"></i> SAIOH</a></li>
                         <li><a href="https://www.sacpcmp.org.za/" target="_blank"><i class="fas fa-drafting-compass"></i> SACPCMP</a></li>
                         <li><a href="https://masterbuilders.org.za/" target="_blank"><i class="fas fa-hard-hat"></i> Master Builders SA</a></li>
                     </ul>
                 </div>
-                <div class="resource-category-v2">
+                 <div class="resource-category">
                     <h4><i class="fas fa-graduation-cap"></i> Free Training Resources</h4>
-                    <ul class="resource-list-v2">
+                    <ul class="resource-list">
                         <li><a href="https://alison.com/courses/health-and-safety" target="_blank"><i class="fab fa-leanpub"></i> Alison - Safety Courses</a></li>
                         <li><a href="https://www.oxfordhomestudy.com/free-online-courses-with-certificates/free-online-health-and-safety-courses" target="_blank"><i class="fas fa-university"></i> Oxford Home Study - Free H&S</a></li>
+                        <li><a href="https://www.openlearning.com/courses/occupational-health-and-safety/" target="_blank"><i class="fas fa-book-reader"></i> OpenLearning - OHS Intro</a></li>
+                        <li><a href="https://www.osha.gov/training/outreach/courses" target="_blank"><i class="fas fa-industry"></i> OSHA Outreach (USA - General Info)</a></li>
                     </ul>
                 </div>
-                <div class="resource-category-v2">
+                <div class="resource-category">
                     <h4><i class="fas fa-newspaper"></i> Publications & Info</h4>
-                    <ul class="resource-list-v2">
+                    <ul class="resource-list">
                         <li><a href="https://safety1st.co.za/" target="_blank"><i class="fas fa-globe-africa"></i> Safety First Association</a></li>
                         <li><a href="https://www.sabs.co.za/" target="_blank"><i class="fas fa-certificate"></i> SABS (Standards)</a></li>
+                        <li><a href="https://www.labour.gov.za/" target="_blank"><i class="fas fa-briefcase"></i> Dept. of Employment & Labour</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="modal-footer-v2">
-                <button class="btn-close-v2" onclick="closeModalV2('resources-modal-v2')">Close</button>
+        </section>
+
+        <section class="content-section quiz-section">
+            <h2 class="section-title"><i class="fas fa-question-circle"></i> OHS Quiz</h2>
+            <button id="start-quiz-btn">Start Quiz</button>
+        </section>
+    </main>
+
+    <footer>
+        <p><i class="fas fa-envelope"></i> <a href="mailto:salatiso@salatiso.com">salatiso@salatiso.com</a> | Salatiso Mdeni, Founder</p>
+        <p>&copy; <span id="currentYear"></span> SafetyHelp. All rights reserved.</p>
+    </footer>
+
+    <div id="service-info-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="service-modal-title">Service Information</h2>
+                <span class="close-btn-icon" onclick="closeModal('service-info-modal')">&times;</span>
+            </div>
+            <div class="modal-body" id="service-modal-body">
+                </div>
+            <div class="modal-footer">
+                <button class="btn-close" onclick="closeModal('service-info-modal')">Close</button>
             </div>
         </div>
     </div>
 
+    <div id="book-info-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="book-modal-title">Book Details</h2>
+                <span class="close-btn-icon" onclick="closeModal('book-info-modal')">&times;</span>
+            </div>
+            <div class="modal-body" id="book-modal-body">
+                </div>
+            <div class="modal-footer">
+                <a id="book-modal-google-play-link" href="#" target="_blank" class="btn-primary-modal" style="background-color: #007bff; color:white; padding: 8px 15px; border-radius:5px; text-decoration:none; margin-right:auto;">View on Google Play</a>
+                <button class="btn-close" onclick="closeModal('book-info-modal')">Close</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="main-quiz-modal" class="modal">
+        <div class="modal-content">
+             <div class="modal-header">
+                <h2 id="quiz-modal-title-text">OHS Compliance Quiz</h2> <span class="close-btn-icon" onclick="closeModal('main-quiz-modal')">&times;</span>
+            </div>
+            <div class="modal-body" id="quiz-modal-body-content">
+                </div>
+            <div class="modal-footer" id="quiz-modal-footer">
+                <button id="quiz-next-btn" class="btn-primary-modal">Next</button>
+                </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script>
-        // Animated Headline
-        const headlineTextV2 = "SafetyHelp is Coming!";
-        const animatedHeadlineV2 = document.getElementById('animatedHeadlineV2');
-        if(animatedHeadlineV2) {
-            headlineTextV2.split('').forEach((letter, index) => {
-                const span = document.createElement('span');
-                span.textContent = letter === ' ' ? '\u00A0' : letter;
-                span.style.animationDelay = `${index * 0.07}s`;
-                animatedHeadlineV2.appendChild(span);
-            });
-        }
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        // Countdown Timer
-        const launchDateV2 = new Date("June 1, 2025 00:00:00").getTime();
-        const countdownElementV2 = document.getElementById('countdownV2');
-
-        function updateCountdownV2() {
+        // Countdown Timer Logic
+        const launchDate = new Date("June 1, 2025 00:00:00").getTime();
+        const countdownInterval = setInterval(() => {
             const now = new Date().getTime();
-            const distance = launchDateV2 - now;
-
-            if (distance < 0) {
-                if(countdownElementV2) countdownElementV2.innerHTML = "<p class='text-xl font-bold text-green-400 py-2'>We're Live!</p>";
-                clearInterval(countdownIntervalV2);
-                return;
-            }
-
+            const distance = launchDate - now;
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            if(countdownElementV2) {
-                countdownElementV2.innerHTML = `
-                    <div class="countdown-item-v2"><span>${days}</span><p>Days</p></div>
-                    <div class="countdown-item-v2"><span>${hours}</span><p>Hours</p></div>
-                    <div class="countdown-item-v2"><span>${minutes}</span><p>Minutes</p></div>
-                    <div class="countdown-item-v2"><span>${seconds}</span><p>Seconds</p></div>
-                `;
+            
+            const countdownElement = document.getElementById("countdown");
+            if (countdownElement) {
+                if (distance < 0) {
+                    clearInterval(countdownInterval);
+                    countdownElement.innerHTML = "<i class='fas fa-rocket'></i> We’re live!";
+                } else {
+                    // Ensure countdown always shows at least 0 for each unit
+                    countdownElement.innerHTML = `<i class="fas fa-hourglass-half"></i> ${days < 0 ? 0 : days}d ${hours < 0 ? 0 : hours}h ${minutes < 0 ? 0 : minutes}m ${seconds < 0 ? 0 : seconds}s`;
+                }
             }
-        }
-        const countdownIntervalV2 = setInterval(updateCountdownV2, 1000);
-        updateCountdownV2();
+        }, 1000);
 
-        document.getElementById('currentYearV2').textContent = new Date().getFullYear();
+        // Initialize Slick Carousels
+        $(document).ready(function(){
+            $('.services-carousel').slick({
+                dots: true,
+                infinite: true, // Loop services
+                speed: 500,
+                slidesToShow: 3, // Show 3 services at a time
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                responsive: [
+                    { breakpoint: 768, settings: { slidesToShow: 2 } }, // 2 for tablets
+                    { breakpoint: 480, settings: { slidesToShow: 1 } }  // 1 for mobile
+                ]
+            });
+            $('.books-carousel').slick({
+                dots: true,
+                infinite: false, // Don't loop books if few
+                speed: 300,
+                slidesToShow: 3, // Adjusted for better fit with 4 sections
+                slidesToScroll: 1,
+                 responsive: [
+                    { breakpoint: 768, settings: { slidesToShow: 2 } },
+                    { breakpoint: 480, settings: { slidesToShow: 1 } }
+                ]
+            });
+        });
 
-        // Modal Functions V2
-        function openModalV2(modalId) {
+        // Modal Open/Close Functions
+        function openModal(modalId) {
             const modal = document.getElementById(modalId);
             if (modal) modal.style.display = 'flex';
         }
-        function closeModalV2(modalId) {
+        function closeModal(modalId) {
             const modal = document.getElementById(modalId);
             if (modal) modal.style.display = 'none';
         }
 
-        function openFeatureModalV2() { openModalV2('feature-modal-v2'); }
-        function openResourcesModalV2() { openModalV2('resources-modal-v2'); }
-        
-        // Book Data & Modal Logic V2
-        const bookDataV2 = {
-            'book-career-v2': {
-                title: 'Safety First: Essentials for Your OHS Career Journey', authors: 'By Salatiso Lonwabo Mdeni', cover: './assets/photos/SF_Career.jpg',
-                googlePlayLink: 'https://play.google.com/books/reader?id=vscJEQAAQBAJ&pg=GBS.PA1&hl=en_IE',
-                summaryPages: [ "In an era where safety transcends borders...", "This book draws inspiration...", "OHS is not confined to the walls...", "Here’s what this guide unlocks...", "Whether you’re a fresh school leaver...", "For those seeking an even deeper dive...", "This book is your empowerment tool..." ], currentPage: 0
-            },
-            'book-plans-v2': {
-                title: 'Safety First: The Essentials of OHS Plans', authors: 'By Salatiso Lonwabo Mdeni', cover: './assets/photos/SF_Plans.jpg',
-                googlePlayLink: 'https://play.google.com/books/reader?id=psgJEQAAQBAJ&pg=GBS.PA1&hl=en_IE',
-                summaryPages: [ "In our increasingly interconnected world...", "While we\'ll leverage South Africa\'s strong safety culture...", "This book focuses on building a robust OHS plan...", "This is more than just a compliance guide...", "Are you ready to build a safer, healthier workplace?", "Looking to delve deeper? Other books include...", "This book is your empowerment tool..." ], currentPage: 0
-            }
-        };
-        let currentBookIdV2 = null;
+        // Service Modal Content Logic
+        function openServiceModal(type) {
+            const modalTitle = document.getElementById('service-modal-title');
+            const modalBody = document.getElementById('service-modal-body');
+            if (!modalTitle || !modalBody) return;
 
-        function openBookModalV2(bookId) {
-            currentBookIdV2 = bookId; const book = bookDataV2[bookId]; if (!book) return;
-            book.currentPage = 0; 
-            document.getElementById('book-modal-title-v2').innerHTML = `<i class="fas fa-book mr-2"></i> ${book.title}`;
-            document.getElementById('book-modal-gp-link-v2').href = book.googlePlayLink;
-            renderBookSummaryPageV2(); openModalV2('book-modal-v2');
+            let title = '';
+            let content = '';
+            // Switch statement for service content (same as your previous version)
+            switch(type) {
+                case 'compliance': title = '<i class="fas fa-clipboard-check"></i> Compliance Management'; content = '<p>Stay on top of OHS rules with tools that make audits and policies a breeze. Ensure full adherence to legal standards effortlessly.</p>'; break;
+                case 'risk': title = '<i class="fas fa-chart-bar"></i> Risk Assessment'; content = '<p>Pinpoint hazards and fix them with our easy-to-use software. Proactively manage risks to create a safer environment.</p>'; break;
+                case 'training': title = '<i class="fas fa-chalkboard-teacher"></i> Training Modules'; content = '<p>Boost your team’s safety know-how with practical, engaging courses. Empower your workforce with essential OHS skills.</p>'; break;
+                case 'incident': title = '<i class="fas fa-file-medical-alt"></i> Incident Reporting'; content = '<p>Log incidents and spot trends to keep your workplace safer. Learn from events to prevent future occurrences.</p>'; break;
+                case 'consulting': title = '<i class="fas fa-hands-helping"></i> Consulting'; content = '<p>Tap into expert advice to level up your OHS game plan. Get tailored solutions from seasoned professionals.</p>'; break;
+                default: title = 'Service Information'; content = '<p>Details about this service are coming soon.</p>';
+            }
+            modalTitle.innerHTML = title;
+            modalBody.innerHTML = content;
+            openModal('service-info-modal');
         }
 
-        function renderBookSummaryPageV2() {
-            const book = bookDataV2[currentBookIdV2]; const modalBody = document.getElementById('book-modal-body-v2');
-            let summaryHtml = `<img src="${book.cover}" alt="${book.title}" class="book-modal-cover-v2" onerror="this.onerror=null;this.src='https://placehold.co/120x180/4b5563/9ca3af?text=Cover';"> <p class="book-modal-authors-v2">${book.authors}</p> <div style="clear:both;"><p>${book.summaryPages[book.currentPage]}</p></div> <div class="summary-pagination-v2"> <button id="prev-page-btn-v2" onclick="changeBookPageV2(-1)" ${book.currentPage === 0 ? 'disabled' : ''}>Prev</button> <span class="page-info-v2">Page ${book.currentPage + 1}/${book.summaryPages.length}</span> <button id="next-page-btn-v2" onclick="changeBookPageV2(1)" ${book.currentPage === book.summaryPages.length - 1 ? 'disabled' : ''}>Next</button> </div>`;
+        // Book Data and Modal Logic
+        const bookData = {
+            'book-career': {
+                title: 'Safety First: Essentials for Your OHS Career Journey',
+                authors: 'By Salatiso Lonwabo Mdeni',
+                cover: './assets/photos/SF_Career.jpg',
+                googlePlayLink: 'https://play.google.com/books/reader?id=vscJEQAAQBAJ&pg=GBS.PA1&hl=en_IE',
+                summaryPages: [ // Using the intro paragraphs from your provided doc
+                    "In an era where safety transcends borders, “Safety First: Essentials for Your OHS Career Journey” emerges as a pivotal guide for aspiring and established professionals alike. This book, part of a comprehensive series, offers a streamlined path to a fulfilling career in Occupational Health and Safety (OHS), with strategies that hold universal relevance.",
+                    "This book draws inspiration from South Africa\'s strong safety culture, but the core principles and strategies are designed to be universally applicable. You can easily adapt them to fit local regulations and practices wherever you are in the world. The good news is, many OHS online courses, including those offered by South African institutions, are internationally recognized. This includes the well-known SAMTRAC. This means the knowledge and skills you gain from this book and recommended courses can be applied globally.",
+                    "OHS is not confined to the walls of industry; it extends to schools, places of worship, and community spaces. It’s about creating safe environments where life thrives. This book demystifies the notion that only a formal degree paves the way to OHS. It presents accessible avenues such as part-time study and remote learning, making education a smart investment.",
+                    "Here’s what this guide unlocks for you: Core OHS Knowledge: Grasp the essentials that pave the way to success. Smart Education Choices: Embrace flexible learning options that align with your financial goals. Practical Experience: Engage in internships that propel your OHS career forward. Diverse Career Opportunities: Explore the vast landscape of OHS and find your niche.",
+                    "Whether you’re a fresh school leaver, an unemployed graduate, a professional pivoting to a new career, or a business leader aiming to enhance safety culture, this book validates that your skills are an asset in OHS.",
+                    "For those seeking an even deeper dive, the series continues with “Safety First: The Comprehensive Blueprint for Your OHS Career,” offering extensive strategies and insights.",
+                    "This book is your empowerment tool. It equips you with the knowledge to safeguard lives, fortify communities, and contribute to a safer future, not just in South Africa but anywhere in the world. Are you prepared to be the catalyst for change? Let the journey begin!"
+                ],
+                currentPage: 0
+            },
+            'book-plans': {
+                title: 'Safety First: The Essentials of OHS Plans',
+                authors: 'By Salatiso Lonwabo Mdeni',
+                cover: './assets/photos/SF_Plans.jpg',
+                googlePlayLink: 'https://play.google.com/books/reader?id=psgJEQAAQBAJ&pg=GBS.PA1&hl=en_IE',
+                summaryPages: [ // Using the intro paragraphs from your provided doc
+                    "In our increasingly interconnected world, the importance of prioritising occupational health and safety (OHS) cannot be overstated. Accidents, injuries, and illnesses have a universal impact, affecting both the well-being of employees and the financial health of businesses. This publication, a key instalment in the \"Safety First\" comprehensive OHS series, provides you with essential knowledge and tools to establish a safe and healthy workplace for your business, irrespective of geographic location.",
+                    "While we\'ll leverage South Africa\'s strong safety culture and regulations as a foundation, the core principles outlined here are universally applicable. Whether you\'re a startup entrepreneur in Asia, a manager in a European corporation, or a director in a multinational corporation, this book empowers you to create a safer and healthier workplace for your employees.",
+                    "This book focuses on building a robust OHS plan, the cornerstone of any effective safety program. Here\'s what you\'ll gain: A compelling understanding of the legal and overall business benefits of a strong OHS plan. Discover how preventing accidents and illnesses not only protects your employees, but also reduces operational costs and improves productivity. A clear roadmap for navigating the OHS landscape. We\'ll break down the roles and responsibilities of key stakeholders, from OHS professionals to business owners and employees, fostering effective collaboration for optimal safety outcomes. Step-by-step guidance on building a compliant OHS plan. Learn how to conduct hazard assessments, develop risk mitigation strategies, establish emergency response procedures, and create training programs that empower your employees to work safely. Actionable strategies for implementing, testing, and continuously improving your OHS plan. Explore practical methods for integrating safety into daily operations, conducting audits and inspections, and using data to identify areas for improvement.",
+                    "This is more than just a compliance guide; it\'s an investment in yours and company\'s future. By prioritising OHS, you create a work environment that fosters employee well-being, boosts morale, and positions your business for sustainable success.",
+                    "Are you ready to build a safer, healthier, and more productive workplace? Let\'s get started!",
+                    "Looking to delve deeper? Below are other books in this OHS comprehensive OHS series continues; Safety First: Essentials for Your OHS Career Journey. Safety First, The Comprehensive Blueprint for Your OHS Career.",
+                    "This book is your empowerment tool. It equips you with the knowledge and tools to build a safe and healthy work environment, contributing to a safer future, not just in South Africa but anywhere in the world."
+                ],
+                currentPage: 0
+            }
+            // Add more books here if needed, following the same structure
+        };
+
+        let currentBookId = null; // To keep track of which book's modal is open
+
+        function openBookModal(bookId) {
+            currentBookId = bookId;
+            const book = bookData[bookId];
+            if (!book) return;
+
+            book.currentPage = 0; // Reset to first page every time modal opens
+            document.getElementById('book-modal-title').innerHTML = `<i class="fas fa-book"></i> ${book.title}`;
+            document.getElementById('book-modal-google-play-link').href = book.googlePlayLink;
+            
+            renderBookSummaryPage(); // Render the first page of the summary
+            openModal('book-info-modal');
+        }
+
+        function renderBookSummaryPage() {
+            const book = bookData[currentBookId];
+            const modalBody = document.getElementById('book-modal-body');
+            
+            let summaryHtml = `
+                <img src="${book.cover}" alt="${book.title}" class="book-modal-cover" onerror="this.onerror=null;this.src='https://placehold.co/120x180/cccccc/333333?text=Cover+Missing';">
+                <p class="book-modal-authors">${book.authors}</p>
+                <div class="summary-content" style="clear:both;">
+                    <p>${book.summaryPages[book.currentPage]}</p>
+                </div>
+                <div class="summary-pagination">
+                    <button id="prev-page-btn" onclick="changeBookPage(-1)" ${book.currentPage === 0 ? 'disabled' : ''}>Prev</button>
+                    <span class="page-info">Page ${book.currentPage + 1} of ${book.summaryPages.length}</span>
+                    <button id="next-page-btn" onclick="changeBookPage(1)" ${book.currentPage === book.summaryPages.length - 1 ? 'disabled' : ''}>Next</button>
+                </div>
+            `;
             modalBody.innerHTML = summaryHtml;
         }
-        function changeBookPageV2(direction) { const book = bookDataV2[currentBookIdV2]; book.currentPage += direction; renderBookSummaryPageV2(); }
 
+        function changeBookPage(direction) {
+            const book = bookData[currentBookId];
+            book.currentPage += direction;
+            // Boundary checks already handled by disabled attribute, but good for safety
+            if (book.currentPage < 0) book.currentPage = 0;
+            if (book.currentPage >= book.summaryPages.length) book.currentPage = book.summaryPages.length - 1;
+            renderBookSummaryPage();
+        }
+
+
+        // Quiz Logic (adapted for modal)
+        const quizQuestions = [
+            { question: "What’s your primary role regarding OHS?", options: ["OHS Trainee/Student", "OHS Professional", "Business Owner/Manager", "Employee (General)", "OHS Service Provider"], type: "role" },
+            { question: "Which industry are you most interested in or associated with?", options: ["Construction", "Manufacturing", "Mining", "Healthcare", "Education", "Office/Administration", "Retail/Hospitality", "Other"], type: "industry" },
+            { question: "A written Health and Safety Policy is crucial for OHS compliance.", answer: "True" },
+            { question: "Regular risk assessments help in proactively identifying workplace hazards.", answer: "True" },
+            { question: "COID (Compensation for Occupational Injuries and Diseases Act) registration is optional for most businesses in SA.", answer: "False" },
+            { question: "Providing OHS training to employees is a legal requirement for employers.", answer: "True" },
+            { question: "Incident investigation aims to assign blame rather than prevent recurrence.", answer: "False" },
+            { question: "Emergency preparedness plans should be tested through regular drills.", answer: "True" }
+        ];
+        let currentQuestionIndex = 0;
+        let userScore = 0;
+
+        const startQuizBtn = document.getElementById('start-quiz-btn');
+        const quizModalBody = document.getElementById('quiz-modal-body-content');
+        const quizNextButton = document.getElementById('quiz-next-btn');
+        const quizModalTitle = document.getElementById('quiz-modal-title-text'); // Target for quiz title
+
+        if (startQuizBtn) {
+            startQuizBtn.addEventListener('click', () => {
+                currentQuestionIndex = 0;
+                userScore = 0;
+                quizNextButton.style.display = 'inline-block'; // Ensure Next button is visible
+                quizNextButton.textContent = 'Next'; // Reset button text
+                quizModalTitle.innerHTML = "OHS Compliance Quiz"; // Reset title
+                displayQuizQuestion();
+                openModal('main-quiz-modal');
+            });
+        }
+        
+        function displayQuizQuestion() {
+            if (currentQuestionIndex >= quizQuestions.length) {
+                showQuizResults();
+                return;
+            }
+            const questionData = quizQuestions[currentQuestionIndex];
+            // Updated to use Q X/Y format for question numbering
+            let html = `<h3>Q ${currentQuestionIndex + 1}/${quizQuestions.length}: ${questionData.question}</h3><div class="options-container">`;
+            
+            if (questionData.type === "role" || questionData.type === "industry") {
+                 questionData.options.forEach(option => {
+                    html += `<label class="quiz-option"><input type="radio" name="answer" value="${option}"> ${option}</label><br>`;
+                });
+            } else { // For True/False questions
+                 html += `<label class="quiz-option"><input type="radio" name="answer" value="True"> True</label><br>`;
+                 html += `<label class="quiz-option"><input type="radio" name="answer" value="False"> False</label><br>`;
+            }
+            html += `</div> <p class="error-message" style="display:none;">Please select an answer.</p>`; // Hidden by default
+            quizModalBody.innerHTML = html;
+
+            // Update Next button text if it's the last question
+            if (currentQuestionIndex === quizQuestions.length - 1) {
+                quizNextButton.textContent = 'Show Results';
+            } else {
+                quizNextButton.textContent = 'Next';
+            }
+        }
+
+        if (quizNextButton) {
+            quizNextButton.addEventListener('click', () => {
+                const selectedOption = quizModalBody.querySelector('input[name="answer"]:checked');
+                const errorMessage = quizModalBody.querySelector('.error-message'); // Get error message element
+
+                if (!selectedOption) {
+                    if(errorMessage) errorMessage.style.display = 'block'; // Show error if no option selected
+                    return;
+                }
+                if(errorMessage) errorMessage.style.display = 'none'; // Hide error if option selected
+
+                const questionData = quizQuestions[currentQuestionIndex];
+                if (questionData.answer) { // If it's a scorable question (has an 'answer' property)
+                    if (selectedOption.value === questionData.answer) {
+                        userScore++;
+                    }
+                }
+                
+                currentQuestionIndex++;
+                if (currentQuestionIndex < quizQuestions.length) {
+                    displayQuizQuestion();
+                } else {
+                    showQuizResults();
+                }
+            });
+        }
+
+        function showQuizResults() {
+            const totalScorableQuestions = quizQuestions.filter(q => q.answer).length; // Count only questions with an 'answer'
+            quizModalTitle.innerHTML = `<i class="fas fa-poll"></i> Your Quiz Result`; // Update modal title
+            let resultMessage = `<p>You scored ${userScore} out of ${totalScorableQuestions} scorable questions.</p>`;
+            
+            if (totalScorableQuestions > 0) { // Avoid division by zero if no scorable questions
+                const percentage = (userScore / totalScorableQuestions) * 100;
+                if (percentage >= 75) {
+                    resultMessage += "<p style='color:green; font-weight:bold;'>Great job! You have a good understanding of OHS basics.</p>";
+                } else if (percentage >= 50) {
+                    resultMessage += "<p style='color:orange;'>Not bad! There's always more to learn in OHS.</p>";
+                } else {
+                    resultMessage += "<p style='color:red;'>Looks like there’s room to grow—SafetyHelp will be here to assist!</p>";
+                }
+            } else {
+                 resultMessage += "<p>Thanks for your input!</p>"; // Message if no scorable questions
+            }
+            resultMessage += "<p>Stay tuned for the launch of SafetyHelp for more resources!</p>";
+            quizModalBody.innerHTML = resultMessage;
+            quizNextButton.style.display = 'none'; // Hide Next button on results page
+        }
+
+        // Optional: Close modal if clicked outside of modal-content
+        // window.onclick = function(event) {
+        //     ['service-info-modal', 'book-info-modal', 'main-quiz-modal'].forEach(id => {
+        //         const modal = document.getElementById(id);
+        //         if (event.target == modal) {
+        //             closeModal(id);
+        //         }
+        //     });
+        // }
     </script>
 </body>
 </html>
