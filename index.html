@@ -94,7 +94,7 @@
         }
         .grid-item-v2:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(44, 122, 123, 0.3); /* #2c7a7b accent glow */
+            box-shadow: 0 10px 20px rgba(40, 167, 69, 0.3); /* SafetyHelp Green glow */
         }
         .grid-item-v2 .item-icon {
             font-size: 2.2rem; /* Increased icon size */
@@ -147,7 +147,7 @@
             margin-bottom: 20px; /* Increased margin */
         }
         .countdown-item-v2 {
-            background-color: rgba(44, 122, 123, 0.3); /* #2c7a7b accent tint */
+            background-color: rgba(40, 167, 69, 0.3); /* SafetyHelp Green tint */
             padding: 10px 15px; /* Increased padding */
             border-radius: 0.5rem; /* Slightly larger radius */
             text-align: center;
@@ -184,6 +184,16 @@
         .modal-header-v2 { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #4a5568; padding-bottom: 12px; margin-bottom: 18px; }
         .modal-header-v2 h2 { margin: 0; font-size: 1.6em; color: #28a745; /* SafetyHelp Green */ font-weight: 700;}
         .modal-body-v2 { overflow-y: auto; flex-grow: 1; line-height: 1.65; font-size: 0.95em; }
+        .modal-body-v2 h4 { /* Styling for subheadings within modal body */
+            font-size: 1.1em; /* Slightly smaller than modal title */
+            font-weight: 600;
+            color: #00aaff; /* SafetyHelp Blue for emphasis */
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+        .modal-body-v2 h4:first-child {
+            margin-top: 0;
+        }
         .modal-footer-v2 { padding-top: 18px; margin-top: 18px; border-top: 1px solid #4a5568; text-align: right; }
         .modal-footer-v2 button, .modal-footer-v2 a { padding: 10px 20px; border-radius: 0.375rem; cursor: pointer; border: none; font-size: 0.95em; font-weight: 600;}
         .btn-close-v2 { background-color: #718096; color: white; } .btn-close-v2:hover{ background-color: #4a5568;}
@@ -206,13 +216,13 @@
         .resource-list-v2 li a i { margin-right: 10px; color: #718096; }
 
         /* Quiz Modal Specifics */
-        .quiz-selection-button { background-color: #007bff; color: white; padding: 10px 15px; margin: 10px; border-radius: 0.375rem; font-weight: 600; }
+        .quiz-selection-button { background-color: #007bff; color: white; padding: 10px 15px; margin: 10px; border-radius: 0.375rem; font-weight: 600; display: block; width: 80%; margin-left: auto; margin-right: auto;}
         .quiz-selection-button:hover { background-color: #0056b3; }
         .quiz-question-v2 { margin-bottom: 15px; }
         .quiz-question-v2 p { font-size: 1.1em; margin-bottom: 10px; color: #e2e8f0; }
         .quiz-options-v2 label { display: block; background-color: #4a5568; color: #e2e8f0; padding: 10px; margin-bottom: 8px; border-radius: 0.375rem; cursor: pointer; transition: background-color 0.2s; }
         .quiz-options-v2 label:hover { background-color: #718096; }
-        .quiz-options-v2 input[type="radio"] { margin-right: 10px; }
+        .quiz-options-v2 input[type="radio"] { margin-right: 10px; accent-color: #28a745; } /* Green accent for radio */
         .quiz-results-v2 p { margin-bottom: 8px; font-size: 1.05em;}
     </style>
 </head>
@@ -223,8 +233,8 @@
     </video>
 
     <header class="header-v2">
-        <img src="./assets/images/logo.png" alt="SafetyHelp Logo" class="safetyhelp-logo mx-auto">
-        <h1 class="animated-text" id="animatedHeadlineV2">SafetyHelp is Coming!</h1>
+        <img src="./assets/images/logo.png" alt="SafetyHelp Logo" class="safetyhelp-logo mx-auto" onerror="this.style.display='none'; document.getElementById('logo-text-fallback').style.display='block';">
+        <h1 id="logo-text-fallback" class="animated-text" style="display:none;">SafetyHelp</h1> <h1 class="animated-text" id="animatedHeadlineV2">SafetyHelp is Coming!</h1>
     </header>
 
     <div class="countdown-container-v2" id="countdownV2">
@@ -282,18 +292,18 @@
                 <span class="close-icon-v2" onclick="closeModalV2('feature-modal-v2')">&times;</span>
             </div>
             <div class="modal-body-v2">
-                <h4 class="text-lg font-semibold text-green-400 mb-1">Compliance Management</h4>
-                <p class="mb-3 text-gray-300">Simplify OHS compliance with tools for audits, policy generation, and legal register management. Stay ahead effortlessly.</p>
-                <h4 class="text-lg font-semibold text-green-400 mb-1">Risk Assessment Tools</h4>
-                <p class="mb-3 text-gray-300">Identify, analyze, and mitigate workplace risks with our intuitive assessment wizards and templates. Proactive safety made easy.</p>
-                <h4 class="text-lg font-semibold text-green-400 mb-1">Interactive Training Modules</h4>
-                <p class="mb-3 text-gray-300">Engaging courses covering general OHS, construction safety, and specialized topics. Empower your team with knowledge.</p>
-                <h4 class="text-lg font-semibold text-green-400 mb-1">Incident Reporting & Management</h4>
-                <p class="mb-3 text-gray-300">Streamlined reporting, investigation, and analysis of incidents to prevent recurrence and improve safety culture.</p>
-                <h4 class="text-lg font-semibold text-green-400 mb-1">OHS Consulting Access</h4>
-                <p class="mb-3 text-gray-300">Connect with expert OHS professionals for tailored advice and support for your specific industry needs.</p>
-                <h4 class="text-lg font-semibold text-green-400 mb-1">Community Safety Tools</h4>
-                <p class="text-gray-300">Report hazards, access safety checklists for various establishments, and contribute to a safer environment for everyone.</p>
+                <h4>Compliance Management</h4>
+                <p class="mb-3 text-gray-300">Streamline your OHS compliance with our intelligent tools. Generate policies, manage legal registers, conduct audits, and ensure your operations meet all statutory requirements with ease and precision. SafetyHelp makes complex compliance simple.</p>
+                <h4>Risk Assessment Tools</h4>
+                <p class="mb-3 text-gray-300">Proactively identify, analyze, and mitigate workplace hazards using our intuitive risk assessment wizards. Create comprehensive risk profiles and implement effective control measures to foster a safer working environment for everyone.</p>
+                <h4>Interactive Training Modules</h4>
+                <p class="mb-3 text-gray-300">Empower your team with essential OHS knowledge through our engaging and practical training modules. Covering general OHS principles, construction-specific safety, and specialized topics, our training is designed to be accessible and impactful.</p>
+                <h4>Incident Reporting & Management</h4>
+                <p class="mb-3 text-gray-300">Efficiently report, track, and investigate workplace incidents. Our system helps you understand root causes, implement corrective actions, and learn from events to prevent future occurrences and continuously improve your safety culture.</p>
+                <h4>OHS Consulting Access</h4>
+                <p class="mb-3 text-gray-300">Connect with a network of seasoned OHS professionals for expert advice and tailored consulting services. Get the support you need to address unique safety challenges and elevate your OHS strategy.</p>
+                <h4>Community Safety Tools</h4>
+                <p class="text-gray-300">Extend safety beyond the workplace. Report public hazards, access safety checklists for community establishments (schools, spaza shops, etc.), and contribute to building a safer South Africa for all.</p>
             </div>
             <div class="modal-footer-v2">
                 <button class="btn-close-v2" onclick="closeModalV2('feature-modal-v2')">Close</button>
@@ -395,10 +405,11 @@
 
 
     <script>
-        // Animated Headline (remains same)
-        const headlineTextV2 = "SafetyHelp is Coming!";
+        // Animated Headline
+        const headlineTextV2 = "SafetyHelp is Coming!"; // You can change this text
         const animatedHeadlineV2 = document.getElementById('animatedHeadlineV2');
-        if(animatedHeadlineV2) {
+        if(animatedHeadlineV2 && headlineTextV2) { // Check if element and text exist
+            animatedHeadlineV2.innerHTML = ''; // Clear existing content before adding new spans
             headlineTextV2.split('').forEach((letter, index) => {
                 const span = document.createElement('span');
                 span.textContent = letter === ' ' ? '\u00A0' : letter; // Handle spaces for animation
@@ -407,7 +418,8 @@
             });
         }
 
-        // Countdown Timer (remains same)
+
+        // Countdown Timer
         const launchDateV2 = new Date("June 1, 2025 00:00:00").getTime();
         const countdownElementV2 = document.getElementById('countdownV2');
         function updateCountdownV2() {
@@ -431,9 +443,13 @@
             }
         }
         const countdownIntervalV2 = setInterval(updateCountdownV2, 1000);
-        updateCountdownV2();
+        updateCountdownV2(); // Initial call to display immediately
 
-        document.getElementById('currentYearV2').textContent = new Date().getFullYear();
+        const currentYearElementV2 = document.getElementById('currentYearV2');
+        if (currentYearElementV2) {
+            currentYearElementV2.textContent = new Date().getFullYear();
+        }
+
 
         // Modal Functions V2
         function openModalV2(modalId) { const modal = document.getElementById(modalId); if (modal) modal.style.display = 'flex'; }
@@ -442,10 +458,10 @@
         function openResourcesModalV2() { openModalV2('resources-modal-v2'); }
         function openQuizSelectionModalV2() { openModalV2('quiz-selection-modal-v2'); }
         
-        // Book Data & Modal Logic V2 (remains same)
+        // Book Data & Modal Logic V2
         const bookDataV2 = {
-            'book-career-v2': { title: 'Safety First: Essentials for Your OHS Career Journey', authors: 'By Salatiso Lonwabo Mdeni', cover: './assets/photos/SF_Career.jpg', googlePlayLink: 'https://play.google.com/books/reader?id=vscJEQAAQBAJ&pg=GBS.PA1&hl=en_IE', summaryPages: [ "In an era where safety transcends borders...", "This book draws inspiration...", "OHS is not confined to the walls...", "Here’s what this guide unlocks...", "Whether you’re a fresh school leaver...", "For those seeking an even deeper dive...", "This book is your empowerment tool..." ], currentPage: 0 },
-            'book-plans-v2': { title: 'Safety First: The Essentials of OHS Plans', authors: 'By Salatiso Lonwabo Mdeni', cover: './assets/photos/SF_Plans.jpg', googlePlayLink: 'https://play.google.com/books/reader?id=psgJEQAAQBAJ&pg=GBS.PA1&hl=en_IE', summaryPages: [ "In our increasingly interconnected world...", "While we\'ll leverage South Africa\'s strong safety culture...", "This book focuses on building a robust OHS plan...", "This is more than just a compliance guide...", "Are you ready to build a safer, healthier workplace?", "Looking to delve deeper? Other books include...", "This book is your empowerment tool..." ], currentPage: 0 }
+            'book-career-v2': { title: 'Safety First: Essentials for Your OHS Career Journey', authors: 'By Salatiso Lonwabo Mdeni', cover: './assets/photos/SF_Career.jpg', googlePlayLink: 'https://play.google.com/books/reader?id=vscJEQAAQBAJ&pg=GBS.PA1&hl=en_IE', summaryPages: [ "In an era where safety transcends borders, “Safety First: Essentials for Your OHS Career Journey” emerges as a pivotal guide for aspiring and established professionals alike. This book, part of a comprehensive series, offers a streamlined path to a fulfilling career in Occupational Health and Safety (OHS), with strategies that hold universal relevance.", "This book draws inspiration from South Africa\'s strong safety culture, but the core principles and strategies are designed to be universally applicable. You can easily adapt them to fit local regulations and practices wherever you are in the world.", "OHS is not confined to the walls of industry; it extends to schools, places of worship, and community spaces. It’s about creating safe environments where life thrives.", "Here’s what this guide unlocks for you: Core OHS Knowledge, Smart Education Choices, Practical Experience, and Diverse Career Opportunities.", "Whether you’re a fresh school leaver, an unemployed graduate, a professional pivoting to a new career, or a business leader aiming to enhance safety culture, this book validates that your skills are an asset in OHS.", "For those seeking an even deeper dive, the series continues with “Safety First: The Comprehensive Blueprint for Your OHS Career,” offering extensive strategies and insights.", "This book is your empowerment tool. It equips you with the knowledge to safeguard lives, fortify communities, and contribute to a safer future." ], currentPage: 0 },
+            'book-plans-v2': { title: 'Safety First: The Essentials of OHS Plans', authors: 'By Salatiso Lonwabo Mdeni', cover: './assets/photos/SF_Plans.jpg', googlePlayLink: 'https://play.google.com/books/reader?id=psgJEQAAQBAJ&pg=GBS.PA1&hl=en_IE', summaryPages: [ "In our increasingly interconnected world, the importance of prioritising occupational health and safety (OHS) cannot be overstated. This publication provides essential knowledge and tools to establish a safe and healthy workplace.", "While leveraging South Africa\'s strong safety culture, the core principles are universally applicable, empowering users globally.", "This book focuses on building a robust OHS plan, covering legal benefits, stakeholder roles, and step-by-step guidance on hazard assessments and mitigation strategies.", "It’s an investment in your company\'s future, fostering employee well-being, boosting morale, and positioning your business for sustainable success.", "Are you ready to build a safer, healthier, and more productive workplace? Let\'s get started!", "Looking to delve deeper? Explore other books in this comprehensive OHS series.", "This book is your empowerment tool, contributing to a safer future worldwide." ], currentPage: 0 }
         };
         let currentBookIdV2 = null;
         function openBookModalV2(bookId) {
@@ -465,19 +481,21 @@
         // Quiz Logic V2
         const generalOHSQuestions = [
             { q: "From which section of the SA Constitution does the right to a safe working environment primarily derive?", o: ["Section 10 (Human Dignity)", "Section 24 (Environment)", "Section 27 (Health care, food, water and social security)", "Section 9 (Equality)"], a: "Section 24 (Environment)" },
-            { q: "The OHS Act gives effect to constitutional rights regarding workplace safety.", o: ["True", "False"], a: "True" },
-            { q: "Municipal by-laws (e.g., fire safety) operate independently of the OHS Act.", o: ["True", "False"], a: "False"},
-            { q: "Who holds the primary duty under the OHS Act to provide and maintain a safe working environment?", o: ["Employees", "The State", "Employers", "Safety Officers"], a: "Employers"},
-            { q: "Which of these is a key OBLIGATION of an employee under the OHS Act?", o: ["To conduct all risk assessments", "To take reasonable care for their own and others' safety", "To provide PPE to colleagues", "To write the company's safety policy"], a: "To take reasonable care for their own and others' safety"},
-            { q: "A 'Section 37(2) agreement' under the OHS Act is primarily concerned with:", o: ["Employee training schedules", "Assigning liability between a client and a mandatory (contractor)", "Reporting of major incidents to the Department of Labour", "The election of safety representatives"], a: "Assigning liability between a client and a mandatory (contractor)"},
-            { q: "Employing undocumented foreign nationals has implications under which primary SA Act regarding workplace injuries?", o: ["Basic Conditions of Employment Act", "Skills Development Act", "Compensation for Occupational Injuries and Diseases Act (COIDA)", "Labour Relations Act"], a: "Compensation for Occupational Injuries and Diseases Act (COIDA)"}
+            { q: "The OHS Act primarily serves to:", o: ["Compensate injured workers", "Give effect to constitutional rights regarding workplace safety", "Regulate trade unions", "Set minimum wages"], a: "Give effect to constitutional rights regarding workplace safety" },
+            { q: "How does the OHS Act relate to Municipal By-laws (e.g., fire safety)?", o: ["OHS Act replaces all by-laws", "By-laws operate independently and can contradict the OHS Act", "By-laws often complement and provide specific local enforcement for OHS Act principles", "Municipal by-laws are only for public spaces, not workplaces"], a: "By-laws often complement and provide specific local enforcement for OHS Act principles"},
+            { q: "Under OHS Act Section 8, an employer's primary duty is to:", o: ["Ensure maximum productivity", "Provide and maintain a safe working environment", "Pay employees above minimum wage", "Report all profits to the Department of Labour"], a: "Provide and maintain a safe working environment"},
+            { q: "An employee's duty under OHS Act Section 14 includes:", o: ["Disciplining non-compliant colleagues", "Purchasing their own PPE", "Taking reasonable care for their own and others' safety", "Conducting health and safety audits"], a: "Taking reasonable care for their own and others' safety"},
+            { q: "A Section 37(2) agreement under the OHS Act primarily aims to:", o: ["Exempt contractors from all safety duties", "Define and assign OHS responsibilities and liabilities between a client and a contractor", "Set out payment terms for contract work", "Allow clients to ignore contractor safety performance"], a: "Define and assign OHS responsibilities and liabilities between a client and a contractor"},
+            { q: "If an undocumented foreign national is injured at work in SA, which Act is central to their potential compensation claim?", o: ["Immigration Act", "Basic Conditions of Employment Act", "COIDA (Compensation for Occupational Injuries and Diseases Act)", "Consumer Protection Act"], a: "COIDA (Compensation for Occupational Injuries and Diseases Act)"}
         ];
         const constructionQuizQuestions = [
-            { q: "Who is responsible for preparing the Health and Safety Specification for a construction project?", o: ["Principal Contractor", "Client", "Safety Officer", "Engineer"], a: "Client" },
-            { q: "A Principal Contractor must provide the client with a ______ before commencing work.", o: ["Quotation only", "List of employees", "Health and Safety Plan", "Company registration certificate"], a: "Health and Safety Plan" },
-            { q: "A Fall Protection Plan is required for any construction work where there is a risk of falling from an elevated position.", o: ["True", "False"], a: "True" },
-            { q: "Before excavation work deeper than _____, specific precautions like shoring must be taken.", o: ["0.5 meters", "1.0 meter", "1.5 meters", "2.5 meters"], a: "1.5 meters" },
-            { q: "Who is primarily responsible for ensuring that scaffolding is erected, altered, and dismantled by competent persons?", o: ["All workers on site", "The Client", "The Contractor/Employer", "The Safety Representative"], a: "The Contractor/Employer"}
+            { q: "Who is legally mandated to prepare the project-specific Health and Safety Specification under Construction Regulations?", o: ["Principal Contractor", "Client", "Appointed Safety Officer", "Lead Engineer"], a: "Client" },
+            { q: "Before starting construction work, a Principal Contractor must provide the Client with an approved:", o: ["Company Profile", "List of Sub-contractors", "Health and Safety Plan", "Initial Invoice"], a: "Health and Safety Plan" },
+            { q: "A Fall Protection Plan is mandatory when there's a risk of falling from any height greater than:", o: ["1 meter", "1.5 meters", "2 meters", "It's required for any elevated work, regardless of specific height if a risk exists."], a: "It's required for any elevated work, regardless of specific height if a risk exists." },
+            { q: "Excavations deeper than _____ require shoring or other precautions to prevent collapse.", o: ["0.75 meters", "1.2 meters", "1.5 meters", "2.0 meters"], a: "1.5 meters" },
+            { q: "Who is responsible for ensuring scaffolding is inspected by a competent person before first use and weekly thereafter?", o: ["The Client", "The scaffolding supplier", "The Contractor/Employer using the scaffold", "The Department of Labour"], a: "The Contractor/Employer using the scaffold"},
+            { q: "Notification of Construction Work must be submitted to the Department of Labour for projects exceeding ___ days or involving more than ___ persons.", o: ["7 days / 10 persons", "14 days / 20 persons", "30 days / 10 persons (or if excavation is deeper than 1m or demolition work)", "60 days / 50 persons"], a: "30 days / 10 persons (or if excavation is deeper than 1m or demolition work)"},
+            { q: "A 'Construction Work Permit' is typically issued by:", o: ["The Client to the Principal Contractor", "The Principal Contractor to Sub-contractors", "The Department of Labour to the Client", "The Local Municipality to the Property Owner"], a: "The Client to the Principal Contractor"}
         ];
 
         let currentQuizType = '';
@@ -522,9 +540,22 @@
         quizNextBtnV2.addEventListener('click', () => {
             const selected = quizBodyElV2.querySelector('input[name="q_answer"]:checked');
             if (!selected) {
-                alert('Please select an answer.'); // Simple alert, can be styled better
+                // You can add a more styled error message within the modal body
+                const errorEl = document.createElement('p');
+                errorEl.textContent = 'Please select an answer before proceeding.';
+                errorEl.style.color = '#f56565'; // Tailwind red-500
+                errorEl.style.marginTop = '10px';
+                // Clear previous error message if any
+                const existingError = quizBodyElV2.querySelector('.quiz-error-msg');
+                if(existingError) existingError.remove();
+                errorEl.classList.add('quiz-error-msg');
+                quizBodyElV2.appendChild(errorEl);
                 return;
             }
+            // Clear error message if an answer is selected
+            const existingError = quizBodyElV2.querySelector('.quiz-error-msg');
+            if(existingError) existingError.remove();
+
             if (selected.value === questionsForCurrentQuiz[currentQuestionIdxV2].a) {
                 scoreV2++;
             }
@@ -548,7 +579,7 @@
             quizNextBtnV2.style.display = 'none';
             quizCloseBtnV2.style.display = 'inline-block';
         }
-        function clearQuizV2() { // Reset quiz state when modal is closed from results
+        function clearQuizV2() { 
             quizBodyElV2.innerHTML = '';
             quizNextBtnV2.style.display = 'inline-block';
             quizCloseBtnV2.style.display = 'none';
